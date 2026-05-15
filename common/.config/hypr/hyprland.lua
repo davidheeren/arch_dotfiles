@@ -29,7 +29,8 @@ hl.config({
     }
 })
 
-require("hyprland.style")(layout_type)
+local colors = require("hyprland.colors")
+require("hyprland.style")(layout_type, colors)
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 hl.config({

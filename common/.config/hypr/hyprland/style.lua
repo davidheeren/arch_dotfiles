@@ -1,4 +1,4 @@
-return function(layout_type)
+return function(layout_type, colors)
     hl.config({
         general = {
             gaps_in = 4,
@@ -7,7 +7,9 @@ return function(layout_type)
             border_size = 2,
 
             col = {
-                active_border   = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
+                -- active_border = { colors = { "rgba(7aa2f7cc)", "rgba(9ece6acc)" }, angle = 45 },
+                active_border = { colors = { "rgb(" .. colors.primary .. ")", "rgb(" .. colors.on_primary .. ")" }, angle = 45 },
+                -- inactive_border = "rgba(595959aa)",
                 inactive_border = "rgba(595959aa)",
             },
 
@@ -21,7 +23,7 @@ return function(layout_type)
         },
 
         decoration = {
-            rounding = 10,
+            rounding = 8,
             rounding_power = 2,
 
             -- Change transparency of focused and unfocused windows

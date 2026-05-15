@@ -4,3 +4,9 @@
 ## Dependencies
 
 - gnu stow
+- matugen
+
+## Apps
+
+- hyprland
+- waybar

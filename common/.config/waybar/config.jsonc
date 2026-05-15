@@ -1,0 +1,98 @@
+// Use a nerd font for nicely sized icons
+// Also you need weird spacing after the icons to look nice
+{
+    "layer": "top",
+    "spacing": 8,
+    "height": 0,
+    "margin-top": 8,
+    "margin-right": 8,
+    "margin-bottom": 0,
+    "margin-left": 8,
+    "modules-left": [
+        "hyprland/workspaces"
+        // "tray"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "cpu",
+        "memory",
+        "battery",
+        "network",
+        "pulseaudio",
+        "backlight"
+        // "mpris"
+    ],
+    "hyprland/workspaces": {
+        "show-special": true,
+        "special-visible-only": true
+    },
+    // "tray": {
+    //     "icon-size": 21,
+    //     "spacing": 10,
+    //     "show-passive-items": true
+    // },
+    "clock": {
+        // "format": " {:%I:%M %p - %a, %d %b}",
+        "format": "  {:%I:%M %p - %a, %d %b}",
+        "tooltip": false,
+        "on-click": "gsimplecal"
+    },
+    "cpu": {
+        "format": "  {usage}%",
+        "interval": 2,
+        "states": {
+            "critical": 90
+        },
+        "on-click": "kitty btm"
+    },
+    "memory": {
+        "format": "󰍃 {percentage}%",
+        "interval": 2,
+        "states": {
+            "critical": 80
+        },
+        "on-click": "kitty btm",
+        "tooltip": false
+    },
+    "battery": {
+        "format": "  {capacity}%",
+        "format-charging": "  {capacity}%",
+        "format-full": "  {capacity}%",
+        "interval": 5,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "tooltip": false
+    },
+    "network": {
+        // "format-wifi": " {bandwidthDownBits}",
+        "format-wifi": "  {bandwidthTotalBytes}",
+        "format-ethernet": "󰈀  {bandwidthTotalBytes}",
+        "format-disconnected": "󰖪  no network",
+        "interval": 5,
+        // "max-length": 50,
+        "tooltip": false,
+        "on-click": "kitty nmtui"
+    },
+    "pulseaudio": {
+        "scroll-step": 5,
+        "max-volume": 150,
+        "format": "{icon}  {volume}%",
+        "format-icons": {
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "tooltip": false
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "󰃠  {percent}%"
+    }
+}

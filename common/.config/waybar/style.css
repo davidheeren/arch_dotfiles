@@ -1,0 +1,104 @@
+@import "colors.css";
+
+/* @variable is gtk css sytnax */
+
+* {
+    border-radius: 8px;
+    font-family: "Iosevka Nerd Font";
+    font-size: 15px;
+    padding: 0px;
+    margin: 0px;
+}
+
+window#waybar {
+    background: alpha(@background, 0.7);
+}
+
+.modules-left {
+    margin-left: 6px;
+}
+
+.modules-right {
+    margin-right: 6px;
+}
+
+#workspaces,
+#clock,
+#cpu,
+#memory,
+#battery,
+#network,
+#backlight,
+#pulseaudio {
+    background-color: @surface_container;
+    padding: 2px 8px;
+    margin: 2px 0px;
+}
+
+#workspaces button {
+    color: @on_surface_variant;
+    padding: 2px 6px;
+}
+
+#workspaces button.active {
+    background-color: @primary;
+    color: @on_primary;
+}
+
+#workspaces button.urgent {
+    background-color: @error;
+    color: @on_error;
+}
+
+#clock {
+    color: @tertiary;
+}
+
+#battery {
+    color: @secondary;
+}
+
+#battery.warning {
+    color: @tertiary;
+}
+
+#battery.critical {
+    color: @error;
+}
+
+#cpu {
+    color: @primary;
+}
+
+#cpu.critical {
+    color: @error;
+}
+
+#memory {
+    color: @on_surface;
+}
+
+#memory.critical {
+    color: @error;
+}
+
+#network {
+    color: @tertiary;
+    min-width: 100px;
+}
+
+#network.disconnected {
+    color: @error;
+}
+
+#pulseaudio {
+    color: @secondary;
+}
+
+#pulseaudio.muted {
+    color: @outline;
+}
+
+#backlight {
+    color: @on_surface_variant;
+}
