@@ -4,12 +4,12 @@
 input_path = '~/.config/hypr/hyprland/colors_template.lua'
 output_path = '~/.config/hypr/hyprland/colors.lua'
 
-# [templates.waybar]
-# input_path = '~/.config/waybar/colors_template.css'
-# output_path = '~/.config/waybar/colors.css'
-# post_hook = 'pkill -SIGUSR2 waybar'
-#
-# [templates.kitty]
-# input_path = '~/.config/kitty/colors_template.conf'
-# output_path = '~/.config/kitty/colors.conf'
-# post_hook = 'pkill -SIGUSR1 kitty'
+[templates.waybar]
+input_path = '~/.config/waybar/colors_template.css'
+output_path = '~/.config/waybar/colors.css'
+post_hook = 'pkill -SIGUSR2 waybar'
+
+[templates.kitty]
+input_path = '~/.config/kitty/colors_template.conf'
+output_path = '~/.config/kitty/colors.conf'
+post_hook = 'pkill -SIGUSR1 kitty'

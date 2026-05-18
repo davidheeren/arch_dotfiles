@@ -107,13 +107,13 @@
             "background": {
                 "color": "#191724"
             },
-            "selectionFg": {
+            "selection_fg": {
                 "color": "#e0def4"
             },
-            "selectionBg": {
+            "selection_bg": {
                 "color": "#403d52"
             },
-            "cursorText": {
+            "cursor_text": {
                 "color": "#191724"
             },
             "cursor": {

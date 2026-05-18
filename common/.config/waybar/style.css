@@ -30,7 +30,7 @@ window#waybar {
 #network,
 #backlight,
 #pulseaudio {
-    background-color: @surface_container;
+    background-color: @foreground;
     padding: 2px 8px;
     margin: 2px 0px;
 }
