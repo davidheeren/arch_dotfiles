@@ -21,3 +21,8 @@ post_hook = 'pkill -SIGUSR1 kitty'
 [templates.wofi]
 input_path = '~/.config/wofi/colors_template.css'
 output_path = '~/.config/wofi/colors.css'
+
+[templates.dunst]
+input_path = '~/.config/dunst/dunstrc_template'
+output_path = '~/.config/dunst/dunstrc'
+post_hook = 'dunstctl reload'
