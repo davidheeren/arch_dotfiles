@@ -1,123 +1,123 @@
 {
     "colors": {
         "primary": {
-            "color": "#bd93f9"
+            "color": "#fff59b"
         },
         "on_primary": {
-            "color": "#282a36"
+            "color": "#0e0e43"
         },
         "secondary": {
-            "color": "#ff79c6"
+            "color": "#a9aefe"
         },
         "on_secondary": {
-            "color": "#4e1d32"
+            "color": "#0e0e43"
         },
         "tertiary": {
-            "color": "#8be9fd"
+            "color": "#9bfece"
         },
         "on_tertiary": {
-            "color": "#003543"
+            "color": "#0e0e43"
         },
         "error": {
-            "color": "#ff5555"
+            "color": "#fd4663"
         },
         "on_error": {
-            "color": "#282a36"
+            "color": "#0e0e43"
         },
         "surface": {
-            "color": "#282a36"
+            "color": "#070722"
         },
         "on_surface": {
-            "color": "#f8f8f2"
+            "color": "#f3edf7"
         },
         "surface_variant": {
-            "color": "#44475a"
+            "color": "#11112d"
         },
         "on_surface_variant": {
-            "color": "#d6d8e0"
+            "color": "#7c80b4"
         },
         "outline": {
-            "color": "#5a5e77"
+            "color": "#21215f"
         },
         "shadow": {
-            "color": "#282a36"
+            "color": "#070722"
         },
         "hover": {
-            "color": "#8be9fd"
+            "color": "#9bfece"
         },
         "on_hover": {
-            "color": "#003543"
+            "color": "#0e0e43"
         },
         "terminal": {
             "normal": {
                 "black": {
-                    "color": "#21222c"
+                    "color": "#11112d"
                 },
                 "red": {
-                    "color": "#ff5555"
+                    "color": "#fd4663"
                 },
                 "green": {
-                    "color": "#50fa7b"
+                    "color": "#9bfece"
                 },
                 "yellow": {
-                    "color": "#f1fa8c"
+                    "color": "#fff59b"
                 },
                 "blue": {
-                    "color": "#bd93f9"
+                    "color": "#a9aefe"
                 },
                 "magenta": {
-                    "color": "#ff79c6"
+                    "color": "#fd4663"
                 },
                 "cyan": {
-                    "color": "#8be9fd"
+                    "color": "#9bfece"
                 },
                 "white": {
-                    "color": "#f8f8f2"
+                    "color": "#f3edf7"
                 }
             },
             "bright": {
                 "black": {
-                    "color": "#6272a4"
+                    "color": "#21215f"
                 },
                 "red": {
-                    "color": "#ff6e6e"
+                    "color": "#fd4663"
                 },
                 "green": {
-                    "color": "#69ff94"
+                    "color": "#9bfece"
                 },
                 "yellow": {
-                    "color": "#ffffa5"
+                    "color": "#fff59b"
                 },
                 "blue": {
-                    "color": "#d6acff"
+                    "color": "#a9aefe"
                 },
                 "magenta": {
-                    "color": "#ff92df"
+                    "color": "#fd4663"
                 },
                 "cyan": {
-                    "color": "#a4ffff"
+                    "color": "#9bfece"
                 },
                 "white": {
                     "color": "#ffffff"
                 }
             },
             "foreground": {
-                "color": "#f8f8f2"
+                "color": "#f3edf7"
             },
             "background": {
-                "color": "#282a36"
+                "color": "#070722"
             },
             "selection_fg": {
-                "color": "#ffffff"
+                "color": "#070722"
             },
             "selection_bg": {
-                "color": "#44475a"
+                "color": "#f3edf7"
             },
             "cursor_text": {
-                "color": "#282a36"
+                "color": "#070722"
             },
             "cursor": {
-                "color": "#f8f8f2"
+                "color": "#fff59b"
             }
         }
     }
