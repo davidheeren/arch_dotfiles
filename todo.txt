@@ -1,12 +1,12 @@
 .config/hypr +
 .config/kitty +
 .config/nvim
-.config/lf
+.config/lf +
 .config/waybar +
 .config/wofi +
 .config/dunst +
-.config/imv
-.config/cliphist
+.config/imv +
+.config/cliphist +
 .config/keyd +
 .config/cheat -
 .config/zen_custom

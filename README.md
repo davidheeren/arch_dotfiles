@@ -18,6 +18,8 @@
 - dunst
 - tmux
 - keyd
+- cliphist
+- imv
 
 ## Sources
 - noctalia shell for some templates and colorschemes

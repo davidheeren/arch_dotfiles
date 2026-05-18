@@ -1,0 +1,94 @@
+
+# docs: https://github.com/gokcehan/lf/blob/master/doc.md
+
+# options
+set hidden true
+set ignorecase true
+set scrolloff 10
+set icons true
+# set info size
+
+# some is from: https://github.com/gokcehan/lf/blob/master/etc/lfrc.ps1.example
+
+# interpreter for shell commands
+set shell bash
+
+# map <enter> shell
+map i
+map <space>
+map <s-delete> delete
+map <delete> trash
+map o :toggle; down
+map O :toggle; up
+map <space>nd mkdir
+map <space>nf mkfile
+map <space>cp copypath
+map <space>cd copydir
+map <space>cf copyfile
+map <space>s calcdirsize
+map gc cd '/'
+
+map w ${{zsh}}
+
+cmd hello ${{echo "Hello World"}}
+cmd copydir ${{echo $PWD | wl-copy}}
+cmd copypath ${{echo $fx | wl-copy}}
+cmd copyfile ${{ for f in $fx; do basename "$f"; done | paste -sd' ' - | wl-copy }}
+
+map e run nvim
+map i run imv
+map b run mpv --loop
+map x run zen-browser
+cmd open # xdg-open filename
+
+cmd pfx run echo
+
+#fixes errors base on new-line splitting for fx
+# cmd run ${{
+#     readarray -t files <<< "$fx"
+#     $1 "${files[@]}" ${2:+"$2"}
+# }}
+cmd run ${{
+    readarray -t files <<< "$fx"
+    args=()
+    placed=false
+    for arg in "$@"; do
+        if [ "$arg" = "{}" ]; then
+            args+=("${files[@]}")
+            placed=true
+        else
+            args+=("$arg")
+        fi
+    done
+    $placed || args+=("${files[@]}")
+    "${args[@]}"
+}}
+
+#cmd zip ${{zip -r file.zip $fx}}
+cmd zip ${{
+    printf "Enter name for zip file: "
+    read ans
+
+    set -f
+    mkdir $ans
+    cp -r $fx $ans
+    zip -r $ans.zip $ans
+    rm -rf $ans
+}}
+
+cmd unzip ${{unzip $f}}
+
+cmd trash run gio trash
+
+cmd mkdir ${{
+    printf "Directory Name: "
+    read ans
+    mkdir $ans
+}}
+
+cmd mkfile ${{
+    printf "File Name: "
+    read ans
+    touch $ans
+}}
+

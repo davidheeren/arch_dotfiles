@@ -1,0 +1,5 @@
+[options]
+overlay_font = Monospace:10
+[binds]
+# <Ctrl+d> = exec rm "$imv_current_file"; close
+<Ctrl+d> = exec gio trash "$imv_current_file"; close
