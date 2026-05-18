@@ -26,3 +26,7 @@ output_path = '~/.config/wofi/colors.css'
 input_path = '~/.config/dunst/dunstrc_template'
 output_path = '~/.config/dunst/dunstrc'
 post_hook = 'dunstctl reload'
+
+[templates.nvim]
+input_path = '~/.config/nvim/lua/colorscheme/colors_template.lua'
+output_path = '~/.config/nvim/lua/colorscheme/colors.lua'

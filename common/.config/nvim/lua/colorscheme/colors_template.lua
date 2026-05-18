@@ -1,0 +1,21 @@
+return {
+    _nc = "{{colors.surface_variant.hex}}",
+    base = "{{colors.surface.hex}}",
+    surface = "{{colors.shadow.hex}}",
+    overlay = "{{colors.surface_variant.hex}}",
+    muted = "{{colors.surface_variant.hex}}",
+    subtle = "{{colors.outline.hex}}",
+    text = "{{colors.on_surface.hex}}",
+    red = "{{colors.error.hex}}",
+    green = "{{colors.terminal.normal.green.hex}}",
+    yellow = "{{colors.terminal.normal.yellow.hex}}",
+    blue = "{{colors.primary.hex}}",
+    magenta = "{{colors.secondary.hex}}",
+    purple = "{{colors.primary.hex}}",
+    cyan = "{{colors.tertiary.hex}}",
+    highlight_low = "{{colors.surface.hex}}",
+    highlight_med = "{{colors.surface_variant.hex}}",
+    highlight_high = "{{colors.outline.hex}}",
+
+    none = "NONE",
+}

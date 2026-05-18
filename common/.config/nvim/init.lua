@@ -1,0 +1,6 @@
+require("options")
+require("keymaps")
+require("autocommands")
+require("lazy-bootstrap")
+require("lazy-plugins")
+require("colorscheme")

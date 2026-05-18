@@ -1,0 +1,21 @@
+return {
+    _nc = "#3c3836",
+    base = "#282828",
+    surface = "#282828",
+    overlay = "#3c3836",
+    muted = "#3c3836",
+    subtle = "#57514e",
+    text = "#fbf1c7",
+    red = "#fb4934",
+    green = "#98971a",
+    yellow = "#d79921",
+    blue = "#b8bb26",
+    magenta = "#fabd2f",
+    purple = "#b8bb26",
+    cyan = "#83a598",
+    highlight_low = "#282828",
+    highlight_med = "#3c3836",
+    highlight_high = "#57514e",
+
+    none = "NONE",
+}
