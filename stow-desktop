@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-stow common
-stow desktop
+stow --no-folding common
+stow --no-folding desktop
