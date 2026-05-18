@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [[ ! -f "$1" ]]; then
+    echo "Please enter a valid colorscheme path from ./colorschemes/"
+    exit 1
+fi
+
+matugen json "$1"

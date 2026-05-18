@@ -1,0 +1,49 @@
+@import ".config/wofi/colors.css";
+
+* {
+    border-radius: 8px;
+    font-family: "Iosevka Nerd Font";
+    font-size: 15px;
+}
+
+window {
+    background-color: alpha(@background, 0.5);
+    border: 4px solid @primary;
+}
+
+#input {
+    background-color: alpha(@background, 0.5);
+    padding: 4px 12px;
+    margin: 10px;
+}
+
+#inner-box {
+    padding: 8px;
+}
+
+#outer-box {
+    padding-bottom: 8px;
+}
+
+#entry {
+    padding: 8px;
+    margin: 4px;
+    background-color: alpha(@background, 0.7);
+}
+
+#entry:selected {
+    background-color: alpha(@primary, 0.8);
+}
+
+/* #entry:selected #text { */
+#text:selected {
+    color: @black;
+}
+
+#text {
+    color: @white;
+}
+
+#img {
+    margin-right: 10px;
+}

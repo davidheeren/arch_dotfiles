@@ -1,0 +1,9 @@
+allow_images=true
+key_up=Ctrl-p
+key_down=Ctrl-n
+insensitive=true
+# matching = contains # default
+#matching = fuzzy
+matching = multi-contains
+key_expand=Tab
+

@@ -13,3 +13,7 @@ post_hook = 'pkill -SIGUSR2 waybar'
 input_path = '~/.config/kitty/colors_template.conf'
 output_path = '~/.config/kitty/colors.conf'
 post_hook = 'pkill -SIGUSR1 kitty'
+
+[templates.wofi]
+input_path = '~/.config/wofi/colors_template.css'
+output_path = '~/.config/wofi/colors.css'
