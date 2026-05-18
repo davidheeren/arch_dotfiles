@@ -4,10 +4,12 @@
 .config/lf
 .config/waybar +
 .config/wofi +
-.config/dunst
+.config/dunst +
 .config/imv
 .config/cliphist
-.config/keyd
-.config/cheat
+.config/keyd +
+.config/cheat -
 .config/zen_custom
-.config/tmux
+.config/tmux +
+
+waybar colors

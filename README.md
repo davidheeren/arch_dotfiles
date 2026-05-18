@@ -15,6 +15,9 @@
 - waybar
 - wofi
 - kitty
+- dunst
+- tmux
+- keyd
 
 ## Sources
 - noctalia shell for some templates and colorschemes
