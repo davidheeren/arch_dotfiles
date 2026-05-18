@@ -10,3 +10,6 @@
 
 - hyprland
 - waybar
+
+## Sources
+- noctalia shell for some templates and colorschemes

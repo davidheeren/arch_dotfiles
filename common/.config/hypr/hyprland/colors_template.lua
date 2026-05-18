@@ -1,6 +1,5 @@
-return {
-    image = "{{image}}",
-<* for name, value in colors *>
-    {{name}} = "{{value.default.hex_stripped}}",
-<* endfor *>
+return 
+{
+    top_border = "{{colors.primary.hex_stripped}}",
+    bottom_border = "{{colors.outline.hex_stripped}}"
 }

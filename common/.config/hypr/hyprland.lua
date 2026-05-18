@@ -52,6 +52,10 @@ hl.config({
     scrolling = {
         column_width = 0.5,
         fullscreen_on_one_column = true,
+        follow_focus = true,
+        follow_min_visible = 1,
+        explicit_column_widths = ".333, 0.5, 0.667, 1.0"
+        -- explicit_column_widths = ".333, 0.5, 0.667, 0.995"
     },
 })
 
@@ -124,15 +128,20 @@ hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("~/bin/screenshot selection"))
 
 if layout_type == "scrolling" then
     -- Scrolling binds
-    -- hl.bind(main_mod .. " + TAB", hl.dsp.layout("colresize +conf"))
-    -- hl.bind(main_mod .. " + SHIFT + TAB", hl.dsp.layout("colresize -conf"))
     hl.bind(main_mod .. " + K", hl.dsp.layout("colresize +conf"))
     hl.bind(main_mod .. " + J", hl.dsp.layout("colresize -conf"))
-    hl.bind(main_mod .. " + L", hl.dsp.layout("move +col"))
-    hl.bind(main_mod .. " + H", hl.dsp.layout("move -col"))
+    -- hl.bind(main_mod .. " + H", hl.dsp.layout("move -col"))
+    -- hl.bind(main_mod .. " + L", hl.dsp.layout("move +col"))
+    hl.bind(main_mod .. " + H", hl.dsp.layout("focus l"))
+    hl.bind(main_mod .. " + L", hl.dsp.layout("focus r"))
+    hl.bind(main_mod .. " + mouse_down", hl.dsp.layout("move +col"))
+    hl.bind(main_mod .. " + mouse_up", hl.dsp.layout("move -col"))
+    -- hl.bind(main_mod .. " + mouse_down", hl.dsp.layout("move +200"))
+    -- hl.bind(main_mod .. " + mouse_up", hl.dsp.layout("move -200"))
     hl.bind(main_mod .. " + LEFT", hl.dsp.layout("swapcol l"))
     hl.bind(main_mod .. " + RIGHT", hl.dsp.layout("swapcol r"))
-    -- hl.bind(main_mod .. " + T", hl.dsp.layout("fit visible")) -- testing
+    -- hl.bind(main_mod .. " + C", hl.dsp.layout("fit visible")) -- testing
+    -- hl.bind(main_mod .. " + P", hl.dsp.layout("promote")) -- testing
 else -- Dwindle or Master
     -- Move focus
     hl.bind(main_mod .. " + H", hl.dsp.focus({ direction = "left" }))

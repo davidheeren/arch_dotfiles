@@ -1,0 +1,3 @@
+#!/bin/bash
+
+matugen json ./colorschemes/rosepine_mat.json
