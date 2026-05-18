@@ -4,6 +4,10 @@
 input_path = '~/.config/hypr/hyprland/colors_template.lua'
 output_path = '~/.config/hypr/hyprland/colors.lua'
 
+[templates.hyprlock]
+input_path = '~/.config/hypr/hyprlock/colors_template.conf'
+output_path = '~/.config/hypr/hyprlock/colors.conf'
+
 [templates.waybar]
 input_path = '~/.config/waybar/colors_template.css'
 output_path = '~/.config/waybar/colors.css'

@@ -182,6 +182,8 @@ hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURC
     { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
+hl.bind(main_mod .. " + XF86MonBrightnessUp", hl.dsp.exec_cmd("hyprctl hyprsunset temperature -500"), { locked = true, repeating = true })
+hl.bind(main_mod .. " + XF86MonBrightnessDown", hl.dsp.exec_cmd("hyprctl hyprsunset temperature +500"), { locked = true, repeating = true })
 
 -- Media controls
 local playerctl_cmd = "playerctl -p spotify,%any"

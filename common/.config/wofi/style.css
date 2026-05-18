@@ -28,7 +28,8 @@ window {
 #entry {
     padding: 8px;
     margin: 4px;
-    background-color: alpha(@background, 0.7);
+    min-height: 30px;
+    background-color: alpha(@background, 0.9);
 }
 
 #entry:selected {
