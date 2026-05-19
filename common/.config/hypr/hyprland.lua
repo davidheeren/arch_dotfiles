@@ -16,6 +16,7 @@ end)
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("XDG_MENU_PREFIX", "arch-")
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 
 hl.config({
     xwayland = {
@@ -109,7 +110,8 @@ hl.bind(main_mod .. " + B", hl.dsp.exec_cmd("zen-browser"))
 hl.bind(main_mod .. " + M", hl.dsp.exec_cmd("thunderbird"))
 hl.bind(main_mod .. " + S", hl.dsp.exec_cmd("spotify-launcher"))
 hl.bind(main_mod .. " + O", hl.dsp.exec_cmd("onlyoffice-desktopeditors"))
-hl.bind(main_mod .. " + E", hl.dsp.exec_cmd("dolphin"))
+-- hl.bind(main_mod .. " + E", hl.dsp.exec_cmd("dolphin"))
+hl.bind(main_mod .. " + E", hl.dsp.exec_cmd("thunar"))
 hl.bind(main_mod .. " + G", hl.dsp.exec_cmd("gtk-launch chatgpt"))
 hl.bind(main_mod .. " + A", hl.dsp.exec_cmd("gtk-launch amplenote"))
 hl.bind(main_mod .. " + T", hl.dsp.exec_cmd("~/bin/bookmark-open"))
