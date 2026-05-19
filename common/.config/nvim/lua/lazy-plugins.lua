@@ -14,6 +14,7 @@ require("lazy").setup({
     require("plugins.luasnip"),
     require("plugins.mini"),
     require("plugins.ccc"),
+    require("plugins.base-16"),
 
     -- Themes
     -- require("plugins.rose-pine"),

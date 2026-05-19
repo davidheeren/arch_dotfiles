@@ -1,21 +1,23 @@
 return {
-    _nc = "{{colors.surface_variant.hex}}",
-    base = "{{colors.surface.hex}}",
-    surface = "{{colors.shadow.hex}}",
-    overlay = "{{colors.surface_variant.hex}}",
-    muted = "{{colors.surface_variant.hex}}",
-    subtle = "{{colors.outline.hex}}",
-    text = "{{colors.on_surface.hex}}",
-    red = "{{colors.error.hex}}",
-    green = "{{colors.terminal.normal.green.hex}}",
-    yellow = "{{colors.terminal.normal.yellow.hex}}",
-    blue = "{{colors.primary.hex}}",
-    magenta = "{{colors.secondary.hex}}",
-    purple = "{{colors.primary.hex}}",
-    cyan = "{{colors.tertiary.hex}}",
-    highlight_low = "{{colors.surface.hex}}",
-    highlight_med = "{{colors.surface_variant.hex}}",
-    highlight_high = "{{colors.outline.hex}}",
+    -- background ramp
+    base00 = "{{colors.surface.hex}}",                         -- main bg
+    base01 = "{{colors.surface_variant.hex}}",                 -- secondary bg
+    base02 = "{{colors.terminal.normal.black.hex}}",           -- selections
+    base03 = "{{colors.terminal.bright.black.hex}}",           -- comments/invisibles
 
-    none = "NONE",
+    -- foreground ramp
+    base04 = "{{colors.outline.hex}}",                         -- subtle fg
+    base05 = "{{colors.on_surface.hex}}",                      -- main fg
+    base06 = "{{colors.on_surface.hex}}",                      -- brighter fg
+    base07 = "#ffffff",                                  -- optional max fg
+
+    -- syntax accents
+    base08 = "{{colors.terminal.normal.red.hex}}",                           -- red
+    base09 = "{{colors.terminal.normal.magenta.hex}}",                       -- orange/peach
+    base0A = "{{colors.terminal.normal.yellow.hex}}",          -- yellow
+    base0B = "{{colors.terminal.normal.green.hex}}",           -- green
+    base0C = "{{colors.terminal.normal.cyan.hex}}",            -- cyan
+    base0D = "{{colors.terminal.normal.blue.hex}}",            -- blue
+    base0E = "{{colors.primary.hex}}",                         -- purple
+    base0F = "{{colors.tertiary.hex}}",                        -- extra accent
 }
