@@ -1,0 +1,5 @@
+thunar
+gvfs
+thunar-archive-plugin
+file-roller
+tumbler
