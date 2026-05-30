@@ -1,3 +1,5 @@
+wofi custom colors not tracked
+
 zen_custom
 
 waybar colors

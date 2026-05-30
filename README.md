@@ -20,6 +20,12 @@
 - keyd
 - cliphist
 - imv
+- neovim
+- lf
 
 ## Sources
 - noctalia shell for some templates and colorschemes
+
+## Notes
+- does not stow /etc files by default
+- manually symlink ~/.zen/xxx.Defaultxxx to ~/.config/zen_custom
