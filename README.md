@@ -28,4 +28,4 @@
 
 ## Notes
 - does not stow /etc files by default
-- manually symlink ~/.zen/xxx.Defaultxxx to ~/.config/zen_custom
+- ln -s ~/.zen/your_profile/chrome ~/.config/zen_custom/userChrome.css

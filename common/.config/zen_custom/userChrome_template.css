@@ -1,0 +1,13 @@
+:root {
+    /* main background (doesn't work due to inlining) */
+    /* --zen-main-browser-background: #00FF00 !important; */
+    /* new tab */
+    --zen-colors-primary: {{colors.primary.hex}} !important;
+    /* toolbar override */
+    --zen-navigator-toolbox-background: {{colors.on_primary.hex}} !important;
+
+    /* Old css */
+    /* font-family: th_font !important; */
+    /* --zen-main-browser-background: th_bg !important; */
+    /* --zen-primary-color: th_accent !important; */
+}
