@@ -4,7 +4,7 @@
     /* new tab */
     --zen-colors-primary: {{colors.primary.hex}} !important;
     /* toolbar override */
-    --zen-navigator-toolbox-background: {{colors.on_primary.hex}} !important;
+    --zen-navigator-toolbox-background: {{colors.on_tertiary.hex}} !important;
 
     /* Old css */
     /* font-family: th_font !important; */
