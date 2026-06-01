@@ -1,0 +1,4 @@
+@define-color primary {{colors.primary.hex}};
+@define-color background {{colors.terminal.background.hex}};
+@define-color white {{colors.terminal.normal.white.hex}};
+@define-color black {{colors.terminal.normal.black.hex}};

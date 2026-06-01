@@ -1,7 +1,8 @@
 zen_custom
 
 waybar colors
-neovim colors
+neovim colors +
 
 matugen colors from wallpaper
 wallpaper and other fields like rounded borders
+gtk, qt themes
