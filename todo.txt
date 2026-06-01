@@ -1,5 +1,7 @@
 
 gtk import relative path
+port all old hyprland.conf keybinds
+add descriptions to keybinds
 
 ~/.p10k.zsh
 

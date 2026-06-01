@@ -121,11 +121,11 @@ hl.device({
 local main_mod = "SUPER" -- Sets "Windows" key as main modifier
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
-hl.bind(main_mod .. " + RETURN", hl.dsp.exec_cmd("kitty"))
+hl.bind(main_mod .. " + RETURN", hl.dsp.exec_cmd("kitty"), { description = "Open default terminal" })
 hl.bind(main_mod .. " + Q", hl.dsp.window.close())
 hl.bind(main_mod .. " + F", hl.dsp.window.fullscreen())
 -- hl.bind(main_mod .. " + ESCAPE", hl.dsp.exec_cmd("hyprlock"))
-hl.bind(main_mod .. " + BACKSPACE", hl.dsp.exec_cmd("~/bin/quick-menu"))
+hl.bind(main_mod .. " + BACKSPACE", hl.dsp.exec_cmd("~/bin/quick-menu"), { description = "Open quick menu" })
 hl.bind(main_mod .. " + B", hl.dsp.exec_cmd("zen-browser"))
 hl.bind(main_mod .. " + M", hl.dsp.exec_cmd("thunderbird"))
 hl.bind(main_mod .. " + S", hl.dsp.exec_cmd("spotify-launcher"))
@@ -142,6 +142,10 @@ hl.bind(main_mod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(main_mod .. " + SPACE", hl.dsp.exec_cmd("~/bin/process-toggle wofi -S drun -p app"))
 hl.bind(main_mod .. " + SHIFT + S", hl.dsp.layout("togglesplit"))
 hl.bind(main_mod .. " + SHIFT + P", hl.dsp.window.pin())
+hl.bind(main_mod .. " + SHIFT + K", hl.dsp.exec_cmd("hyprbind -d | wofi -S dmenu"))
+
+-- fun
+hl.bind(main_mod .. " + SHIFT + L", hl.dsp.exec_cmd("[fullscreen] kitty -o background_opacity=0.0 pipes.sh -p 2"))
 
 -- Screeenshot
 hl.bind("PRINT", hl.dsp.exec_cmd("~/bin/screenshot"))
