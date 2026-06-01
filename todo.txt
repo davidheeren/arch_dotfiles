@@ -1,4 +1,6 @@
-zen_custom
+wofi custom colors not tracked
+
+~/.p10k.zsh
 
 waybar colors
 neovim colors +

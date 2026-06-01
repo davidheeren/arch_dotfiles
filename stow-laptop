@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+stow --no-folding common
+stow --no-folding laptop

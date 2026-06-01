@@ -1,4 +1,22 @@
+local function create_layout_file()
+    local filepath = os.getenv("HOME") .. "/.config/hypr/hyprland/layout_local.lua"
+    local file = io.open(filepath, "r")
+    if file then
+        file:close()
+        return
+    end
 
+    local new_file, err = io.open(filepath, "w")
+    if not new_file then
+        return false, "Failed to create file: " .. tostring(err)
+    end
+    new_file:write('return "dwindle"')
+    new_file:write('\n-- return "scrolling"')
+    new_file:write('\n-- return "master"')
+    new_file:close()
+end
+
+create_layout_file()
 local layout_type = require("hyprland.layout_local")
 require("hyprland.monitors")
 
@@ -15,7 +33,8 @@ end)
 -- Environment vars
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
-hl.env("XDG_MENU_PREFIX", "arch-")
+-- for dolphie but kinda broken
+-- hl.env("XDG_MENU_PREFIX", "arch-")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 
 hl.config({
@@ -93,10 +112,11 @@ hl.config({
     },
 })
 
--- hl.device({
---     name = "dell0ad9:00-04f3:3147-touchpad",
---     accel_profile = "adaptive"
--- })
+-- laptop specific
+hl.device({
+    name = "dell0ad9:00-04f3:3147-touchpad",
+    accel_profile = "adaptive"
+})
 
 local main_mod = "SUPER" -- Sets "Windows" key as main modifier
 
@@ -184,8 +204,10 @@ hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURC
     { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
-hl.bind(main_mod .. " + XF86MonBrightnessUp", hl.dsp.exec_cmd("hyprctl hyprsunset temperature -500"), { locked = true, repeating = true })
-hl.bind(main_mod .. " + XF86MonBrightnessDown", hl.dsp.exec_cmd("hyprctl hyprsunset temperature +500"), { locked = true, repeating = true })
+hl.bind(main_mod .. " + XF86MonBrightnessUp", hl.dsp.exec_cmd("hyprctl hyprsunset temperature -500"),
+    { locked = true, repeating = true })
+hl.bind(main_mod .. " + XF86MonBrightnessDown", hl.dsp.exec_cmd("hyprctl hyprsunset temperature +500"),
+    { locked = true, repeating = true })
 
 -- Media controls
 local playerctl_cmd = "playerctl -p spotify,%any"

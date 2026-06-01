@@ -30,3 +30,7 @@ post_hook = 'dunstctl reload'
 [templates.nvim]
 input_path = '~/.config/nvim/lua/colorscheme/colors_template.lua'
 output_path = '~/.config/nvim/lua/colorscheme/colors.lua'
+
+[templates.zen]
+input_path = '~/.config/zen_custom/userChrome_template.css'
+output_path = '~/.config/zen_custom/userChrome.css'
