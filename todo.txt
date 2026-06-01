@@ -1,4 +1,5 @@
-wofi custom colors not tracked
+
+gtk import relative path
 
 ~/.p10k.zsh
 
