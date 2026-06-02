@@ -24,7 +24,12 @@ return {
             -- },
             servers = {
                 lua_ls = {
-                    settings = { Lua = { diagnostics = { globals = { "vim" } } } }
+                    settings = {
+                        Lua = {
+                            diagnostics = { globals = { "vim" } },
+                            format = { defaultConfig = { max_line_length = "240" } }
+                        }
+                    }
                 },
                 -- csharp_ls = {},
                 -- csharpier = {},
