@@ -1,12 +1,13 @@
 
 gtk import relative path
 port all old hyprland.conf keybinds
-add descriptions to keybinds
 
 ~/.p10k.zsh
 
-waybar colors
-neovim colors +
+polish waybar colors
+polish neovim colors
+
+look at wallust program
 
 matugen colors from wallpaper
 wallpaper and other fields like rounded borders
