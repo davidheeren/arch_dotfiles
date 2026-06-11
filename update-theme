@@ -8,7 +8,7 @@ if [[ ! -f "$scheme" ]]; then
     scheme="$SCRIPT_DIR/colorschemes/$(ls -p $SCRIPT_DIR/colorschemes | grep -v / | fzf)"
 fi
 
-echo "$scheme"
+# echo "$scheme"
 
 if [[ -f "$scheme" ]]; then
     matugen json "$scheme"
