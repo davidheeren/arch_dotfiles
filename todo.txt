@@ -2,7 +2,7 @@
 gtk import relative path
 port all old hyprland.conf keybinds
 
-~/.p10k.zsh
+bin shell scripts
 
 polish waybar colors
 polish neovim colors

@@ -28,6 +28,8 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("wl-paste --watch cliphist store")
     hl.exec_cmd("wl-clip-persist --clipboard regular")
     hl.exec_cmd("waybar")
+    -- https://wiki.hypr.land/Hypr-Ecosystem/hyprpolkitagent
+    hl.exec_cmd("systemctl --user start hyprpolkitagent")
 end)
 
 -- Environment vars
@@ -75,7 +77,6 @@ hl.config({
         follow_focus = true,
         follow_min_visible = 1,
         explicit_column_widths = ".333, 0.5, 0.667, 1.0"
-        -- explicit_column_widths = ".333, 0.5, 0.667, 0.995"
     },
 })
 
@@ -127,6 +128,7 @@ hl.bind(main_mod .. " + F", hl.dsp.window.fullscreen(), { description = "Toggle 
 -- hl.bind(main_mod .. " + ESCAPE", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(main_mod .. " + BACKSPACE", hl.dsp.exec_cmd("~/bin/quick-menu"), { description = "Open quick menu" })
 hl.bind(main_mod .. " + B", hl.dsp.exec_cmd("zen-browser"), { description = "Open browser" })
+hl.bind(main_mod .. " + Z", hl.dsp.exec_cmd("zeditor"), { description = "Open gui code editor" })
 hl.bind(main_mod .. " + M", hl.dsp.exec_cmd("thunderbird"), { description = "Open email" })
 hl.bind(main_mod .. " + S", hl.dsp.exec_cmd("spotify-launcher"), { description = "Open spotify" })
 hl.bind(main_mod .. " + O", hl.dsp.exec_cmd("onlyoffice-desktopeditors"), { description = "Open onlyoffice" })
@@ -188,11 +190,11 @@ for i = 1, 10 do
 end
 
 -- Special workspaces
-hl.bind(main_mod .. " + DELETE", hl.dsp.workspace.toggle_special("magic"), { description = "Toggle magic workspace"} )
-hl.bind(main_mod .. " + SHIFT + DELETE", hl.dsp.window.move({ workspace = "special:magic" }), { description = "Move window to magic workspace"} )
+hl.bind(main_mod .. " + DELETE", hl.dsp.workspace.toggle_special("magic"), { description = "Toggle magic workspace" })
+hl.bind(main_mod .. " + SHIFT + DELETE", hl.dsp.window.move({ workspace = "special:magic" }), { description = "Move window to magic workspace" })
 
 -- Resize
-hl.bind(main_mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true, description = "Move window position with mouse"})
+hl.bind(main_mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true, description = "Move window position with mouse" })
 hl.bind(main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true, description = "Resize window with mouse" })
 
 -- Laptop multimedia keys for volume and LCD brightness
@@ -239,3 +241,16 @@ hl.window_rule({
 
     no_focus = true,
 })
+
+
+-- trying to have lonely windows start full width but be able to be dynamically ajusted
+-- hl.window_rule({
+--     name = "full_witdth_start",
+--     match = {
+--         -- float = false,
+--         -- workspace = "w[tv1]s[false]"
+--         workspace = "w[tv1]"
+--     },
+--     border_size = 0,
+--     scrolling_width = 1.0
+-- })

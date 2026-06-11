@@ -3,3 +3,4 @@ gvfs
 thunar-archive-plugin
 file-roller
 tumbler
+gvfs-smb
