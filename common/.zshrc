@@ -11,7 +11,7 @@ export PATH=$PATH:$HOME/go/bin
 # alias: " only run subshell once on definition but ' run every time
 alias nvimr="nvim -Rm"
 alias o="xdg-open"
-alias cdmedia='cd $(~/bin/cdmedia)'
+alias cdmedia='cd $(~/bin/media-path)'
 alias lfcd='cd "$(command lf -print-last-dir "$@")"'
 alias cdg='cd $(git rev-parse --show-toplevel)'
 
