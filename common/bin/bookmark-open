@@ -1,0 +1,25 @@
+#!/bin/bash
+
+BOOKMARKS="$HOME/notes/bookmarks.txt"
+
+if [[ ! -f "$BOOKMARKS" ]]; then
+    echo "$BOOKMARKS does not exit"
+    exit
+fi
+
+BOOKMARK=$(cat "$BOOKMARKS" | grep -v -E '^#|^$' | sed "/^$/d" | "$HOME/bin/process-toggle" wofi -E -S dmenu -p bookmark)
+
+# Wofi returns the input string if not match, so we check for pipe character to confirm
+# if [[ -z "$BOOKMARK" || "$BOOKMARK" != *"|"* ]]; then
+if [[ -z "$BOOKMARK" ]]; then
+    exit
+fi
+
+# Get second column
+URL=$(echo "$BOOKMARK" | awk -F "|" '{print $2}')
+# Strip leading whitespace
+URL="${URL#"${URL%%[![:space:]]*}"}"
+# Strip trailing whitespace
+URL="${URL%"${URL##*[![:space:]]}"}"
+
+zen-browser "$URL"

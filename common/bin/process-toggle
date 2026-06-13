@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cmd="$1"
+shift # Now $@ holds all args but $1
+
+if pgrep -x "$cmd" > /dev/null; then
+    pkill "$cmd"
+else
+    "$cmd" "$@"
+fi

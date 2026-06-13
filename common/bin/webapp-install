@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# help: https://medium.com/medialesson/use-a-hidden-google-api-to-load-favicons-fa945d0ba442
+
+read -rp "Enter the url (clean and include http): " url
+# remove trailing / otherwise breaks
+url="${url%/}"
+
+read -rp "Enter the name: " name
+
+# strip url of http or https:// or www. then any after /
+# regex is black magic and I have no idea how this works
+stripped_url=$(echo "$url" | sed -E 's|^(https?://)?(www\.)?||; s|/.*$||')
+
+# replace space with underscore and lowercase all
+file_name="${name// /_}"
+file_name=${file_name,,}
+
+app_dir="$HOME/.local/share/applications"
+icon_dir="$app_dir/icons"
+mkdir -p "$icon_dir"
+
+curl "https://icon.horse/icon/$stripped_url" -o "$icon_dir/$file_name.png" || exit 1
+
+{
+    echo "[Desktop Entry]"
+    echo "Type=Application"
+    echo "Name=$name"
+    echo "Icon=$icon_dir/$file_name.png"
+    echo "Exec=helium-browser --app=$url"
+
+} > "$app_dir/$file_name.desktop"
+
+echo "All done"

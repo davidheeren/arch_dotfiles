@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Exit if OBS is not running
+if ! pgrep -x "obs" > /dev/null
+then
+    dunstify "OBS not running"
+    exit
+fi
+
+# Toggle OBS recording
+if obs-cmd recording status | grep -q "true"
+then
+    # If recording, stop it
+    obs-cmd recording stop
+    sleep 0.5
+    pw-play "$HOME/audio/system_sfx/button1.mp3"
+else
+    # If not recording, start it
+    pw-play "$HOME/audio/system_sfx/button2.mp3"
+    sleep 0.5
+    obs-cmd recording start
+fi

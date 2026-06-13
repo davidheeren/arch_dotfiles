@@ -1,0 +1,30 @@
+#!/bin/bash
+#TODO fix
+
+regex_pattern="\.[0-9]{8}T[0-9]{6}\.[AB]"
+
+fd -H "$regex_pattern" "$HOME" -E ".local"| while IFS= read -r file_conflict; do
+    file_main=$(echo "$file_conflict" | sed -E "s/$regex_pattern//")
+
+    if [[ ! -f "$file_main" ]]; then
+        echo "Error: file '$file_main' does not exist but has conflict"
+        continue
+    fi
+
+    read -r -n 1 -p "Edit file '$file_main' ? [Y/n]: " input < /dev/tty
+    echo
+    if [[ "$input" == [Nn] ]]; then
+        continue
+    fi
+
+    nvim -d "$file_main" "$file_conflict"
+
+    read -r -n 1 -p "Delete file '$file_conflict' ? [Y/n]: " input < /dev/tty
+    echo
+    if [[ "$input" == [Nn] ]]; then
+        continue
+    fi
+
+    rm "$file_conflict"
+
+done

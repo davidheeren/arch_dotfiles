@@ -1,0 +1,7 @@
+#!/bin/bash
+
+pkg=$(paru -Qq | fzf --preview 'paru -Qi {}')
+
+[[ -z "$pkg" ]] && exit 0
+
+sudo paru -Rs "$pkg"

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# file_name="shot_$(date +'%Y_%m_%d_%H_%M_%S')"
+file_name="shot_$(date +'%Y-%b-%d_%H-%M-%S')"
+file_extension=".local.png"
+file_dir=$HOME/pictures/screenshots
+file_path="$file_dir/$file_name$file_extension"
+
+mkdir -p "$file_dir"
+
+if [[ "$1" == "selection" ]]; then
+    grim -g "$(slurp)" "$file_path"
+else
+    grim "$file_path"
+fi
+
+action=$(dunstify --action="rename,Rename" "Screenshot taken")
+
+if [[ "$action" == "rename" ]]; then
+    new_file_name=$(echo "$file_path" | "$HOME/bin/process-toggle" wofi -S dmenu -p "screenshot_name")
+    if [[ -z "$new_file_name" ]]; then
+        exit
+    fi
+    new_file_path="$file_dir/$new_file_name$file_extension"
+    mv "$file_path" "$new_file_path"
+    # kitty -d "$file_dir"
+fi

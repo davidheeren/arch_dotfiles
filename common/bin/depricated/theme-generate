@@ -1,0 +1,114 @@
+#!/bin/bash
+#TODO idk whats even going on
+
+return 1
+
+theme_path=~/theme/current.local.conf
+if [[ -n "$1" ]]; then
+    theme_path="$1"
+    ln -sf "$theme_path" ~/theme/current.local.conf
+fi
+
+# more config paths to come
+waybar_in_path="$HOME/.config/waybar/style_template.css"
+waybar_out_path="$HOME/.config/waybar/style.local.css"
+
+wofi_in_path="$HOME/.config/wofi/style_template.css"
+wofi_out_path="$HOME/.config/wofi/style.local.css"
+
+kitty_in_path="$HOME/.config/kitty/theme_template.conf"
+kitty_out_path="$HOME/.config/kitty/theme_current.local.conf"
+
+nvim_in_path="$HOME/.config/nvim/lua/colorscheme/palette_template.lua"
+nvim_out_path="$HOME/.config/nvim/lua/colorscheme/palette_local.lua"
+
+zen_in_path="$HOME/.config/zen_custom/userChrome_template.css"
+zen_out_path="$HOME/.config/zen_custom/userChrome.local.css"
+
+hyprland_in_path="$HOME/.config/hypr/hyprland/style_template.conf"
+hyprland_out_path="$HOME/.config/hypr/hyprland/style.local.conf"
+
+hyprlock_in_path="$HOME/.config/hypr/hyprlock/hyprlock_template.conf"
+hyprlock_out_path="$HOME/.config/hypr/hyprlock/hyprlock.local.conf"
+
+dunst_in_path="$HOME/.config/dunst/dunstrc_template"
+dunst_out_path="$HOME/.config/dunst/dunstrc_current.local"
+
+waybar_tmp=$(mktemp)
+wofi_tmp=$(mktemp)
+kitty_tmp=$(mktemp)
+nvim_tmp=$(mktemp)
+zen_tmp=$(mktemp)
+hyprland_tmp=$(mktemp)
+hyprlock_tmp=$(mktemp)
+dunst_tmp=$(mktemp)
+
+process_line() {
+    local type="$1"
+    local key="$2"
+    local value="$3"
+
+    if [[ "$type" == "p" ]]; then
+        value="${value/#\~/$HOME}"
+        "$HOME/bin/wallpaper-update" "$value"
+        echo "changing wallpaper"
+    fi
+
+    # Escape special sed characters in the replacement value
+    value=$(printf '%s\n' "$value" | sed -e 's/[\/&]/\\&/g')
+
+    # Process css values
+    value_css="$value"
+    case "$type" in
+        i) value_css="${value}px" ;;
+        f) value_css="\"${value}\"" ;;
+        c) ;;
+    esac
+
+    value_hypr="${value/#\#/}"
+
+    # Use a different delimiter (|) to avoid conflicts with forward slashes
+    echo "s|\\b${key}\\b|${value_css}|g" >> "$waybar_tmp"
+    echo "s|\\b${key}\\b|${value_css}|g" >> "$wofi_tmp"
+    echo "s|\\b${key}\\b|${value_css}|g" >> "$kitty_tmp"
+    echo "s|\\b${key}\\b|\"${value}\"|g" >> "$nvim_tmp"
+    echo "s|\\b${key}\\b|${value}|g" >> "$zen_tmp"
+    echo "s|\\b${key}\\b|${value_hypr}|g" >> "$hyprland_tmp"
+    echo "s|\\b${key}\\b|${value_hypr}|g" >> "$hyprlock_tmp"
+    echo "s|\\b${key}\\b|${value}|g" >> "$dunst_tmp"
+}
+
+while IFS=' ' read -r type key value; do
+    [[ -z "$type" || "$type" =~ ^# ]] && continue
+
+    if [[ "$type" == "l" ]]; then
+        line=$(grep -w "^[^#l] ${value}" "$theme_path")
+        type=$(echo "$line" | awk '{print $1}')
+        value=$(echo "$line" | awk '{print $3}')
+        process_line "$type" "$key" "$value"
+    else
+        process_line "$type" "$key" "$value"
+    fi
+done < "$theme_path"
+
+sed -f "$waybar_tmp" "$waybar_in_path" > "$waybar_out_path"
+sed -f "$wofi_tmp" "$wofi_in_path" > "$wofi_out_path"
+sed -f "$kitty_tmp" "$kitty_in_path" > "$kitty_out_path"
+sed -f "$nvim_tmp" "$nvim_in_path" > "$nvim_out_path"
+sed -f "$zen_tmp" "$zen_in_path" > "$zen_out_path"
+sed -f "$hyprland_tmp" "$hyprland_in_path" > "$hyprland_out_path"
+sed -f "$hyprlock_tmp" "$hyprlock_in_path" > "$hyprlock_out_path"
+sed -f "$dunst_tmp" "$dunst_in_path" > "$dunst_out_path"
+
+"$HOME/bin/runbg" "$HOME/bin/process-restart waybar"
+dunstctl reload
+killall -SIGUSR1 kitty
+
+rm -f "$waybar_tmp"
+rm -f "$wofi_tmp"
+rm -f "$kitty_tmp"
+rm -f "$nvim_tmp"
+rm -f "$zen_tmp"
+rm -f "$hyprland_tmp"
+rm -f "$hyprlock_tmp"
+rm -f "$dunst_tmp"

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+declare -A actions
+
+actions['services/wifi']="kitty nmtui"
+actions['services/bluetooth']="kitty bluetui"
+actions['services/audio']="kitty wiremix"
+actions['system/suspend']="systemctl suspend"
+actions['system/reboot']="systemctl reboot"
+actions['system/shutdown']="systemctl poweroff"
+actions['system/lock']="hyprlock"
+actions['system/sleep']="hyprlock & disown && systemctl suspend"
+# actions['system/exit']="hyprctl dispatch exit"
+actions['system/exit']="hyprctl dispatch 'hl.dsp.exit()'"
+# actions['theme/choose']="$HOME/bin/theme-choose"
+# actions['theme/reload']="$HOME/bin/theme-generate"
+# actions['information/keybinds']="$HOME/bin/keybinds-list | wofi -S dmenu -p keybind"
+
+choice=$(printf '%s\n' "${!actions[@]}" | "$HOME/bin/process-toggle" wofi -S dmenu -p action)
+[[ -n "$choice" ]] && eval "${actions[$choice]}"

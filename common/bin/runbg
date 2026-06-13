@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# setsid "$@" >> ~/runbg.log 2>&1 &
+# systemd-run --user "$@"
+nohup "$@" > /dev/null 2>&1 &

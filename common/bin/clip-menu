@@ -1,0 +1,7 @@
+#!/bin/bash
+
+clip=$(cliphist list | "$HOME/bin/process-toggle" wofi -S dmenu -p clip)
+
+if [[ -n "$clip" ]]; then
+    echo "$clip" | cliphist decode | wl-copy
+fi

@@ -1,0 +1,54 @@
+#!/bin/bash
+#TODO fix alternate screen stuff
+
+# source: https://github.com/basecamp/omarchy/blob/master/bin/omarchy-cmd-screensaver
+
+# Enable job control to give the background process its own process group.
+set -m
+
+# On exit, kill background jobs, restore screen and cursor.
+function cleanup() {
+    # Kill the entire process group of the background job to prevent orphans.
+    # The '-' before JOB_PID is crucial.
+    kill -- -"$JOB_PID" &>/dev/null
+
+    tput rmcup # Restore terminal
+    # tput cnorm # Restore cursor
+}
+
+trap cleanup EXIT SIGINT SIGTERM SIGQUIT SIGHUP
+
+if [ ! -t 0 ]; then
+    regular_text=$(cat)
+elif [ -n "$1" ]; then
+    regular_text="$1"
+else
+    regular_text="David's PC"
+fi
+
+text=$(echo "$regular_text" | figlet)
+
+tput smcup # Switch to alternate screen
+# tput civis # Hide cursor
+
+# Run animation loop in the background.
+(
+    while true; do
+        echo "$text" | tte \
+            --frame-rate 60 --canvas-width 0 --canvas-height $(($(tput lines) - 2)) --anchor-canvas c --anchor-text c \
+            --random-effect
+    done
+) &
+
+JOB_PID=$!
+
+# Next animation on space; any other key quits
+while read -n 1 -s -r; do
+    if [[ "$REPLY" == " " ]]; then
+        # Signal the background loop to restart the animation
+        pkill -P "$JOB_PID"
+    else
+        # Any other key pressed: exit.
+        break
+    fi
+done

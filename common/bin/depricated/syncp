@@ -1,0 +1,22 @@
+#!/bin/bash
+
+remote_config="onedrive-personal:arch_sync_config/config.py"
+remote_config_dir="onedrive-personal:arch_sync_config/"
+local_config="$HOME/.config/syncrclone/config.py"
+local_config_dir="$HOME/.config/syncrclone/"
+
+# this will result in data loss, so don't edit the config at both times
+rclone copy -u "$local_config" "$remote_config_dir" -v
+rclone copy -u "$remote_config" "$local_config_dir" -v
+
+TMPFILE=$(mktemp)
+
+# python -u "$HOME/apps/syncrclone/syncrclone.py" --dry-run "$local_config" | tee "$TMPFILE"
+python -u "$HOME/apps/syncrclone/syncrclone.py" "$local_config" | tee "$TMPFILE"
+rg "CONFLICT" "$TMPFILE"
+
+rm "$TMPFILE"
+
+chmod u+x "$HOME"/bin/*
+
+#"\.\d{8}T\d{6}\.[AB]"

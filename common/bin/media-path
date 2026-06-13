@@ -1,0 +1,28 @@
+#!/bin/bash
+
+dir="/run/media/$USER/"
+
+# put sub dirs in a variable
+sub_dirs=$(find "$dir" -maxdepth 1 -mindepth 1 -type d)
+
+# if none then just cd $dir
+if [[ -z "$sub_dirs" ]]; then
+    echo "$dir"
+    exit
+fi
+
+# if there is only one sub_dir, cd into it and exit
+if [[ $(echo "$sub_dirs" | wc -l) -eq 1 ]]; then
+    echo "$sub_dirs"
+    exit
+fi
+
+# else fzf the sub dirs into var
+chosen_dir=$(echo "$sub_dirs" | fzf)
+
+# if chosen dir var is empty string then just cd $dir else chosen dir
+if [[ -n "$chosen_dir" ]]; then
+    echo "$chosen_dir"
+else
+    echo "$dir"
+fi

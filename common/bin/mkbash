@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [[ -z "$1" ]]; then
+    echo "Empty path"
+    exit 1
+fi
+
+path="$1"
+
+echo "#!/bin/bash" > "$path"
+chmod +x "$path"
+nvim "$path"

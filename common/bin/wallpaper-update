@@ -1,0 +1,17 @@
+#!/bin/bash
+
+path="$1"
+
+if [[ -z "$path" ]]; then
+    path=$(find "$HOME/pictures/wallpaper" -type f | "$HOME/bin/process-toggle" wofi -S dmenu -p wallpaper)
+    echo "$wall"
+fi
+
+if [[ ! -f "$path" ]]; then
+    echo "Error: "$path" is not a valid file"
+    exit 1
+fi
+
+ln -sf "$path" "$HOME/pictures/wallpaper/current.local"
+
+"$HOME/bin/runbg" "$HOME/bin/process-restart" hyprpaper

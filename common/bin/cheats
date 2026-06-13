@@ -1,0 +1,8 @@
+#!/bin/bash
+
+file=$(ls "$HOME/notes/cheat" | fzf)
+
+if [[ -f "$file" ]]; then
+    echo $(cheat $file)
+fi
+

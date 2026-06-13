@@ -1,0 +1,7 @@
+#!/bin/bash
+
+pkg=$(paru -Slq | fzf --preview 'paru -Si {}') 
+
+[[ -z "$pkg" ]] && exit 0
+
+paru -S "$pkg"

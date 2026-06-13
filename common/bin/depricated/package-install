@@ -1,0 +1,8 @@
+#!/bin/bash
+
+pkg=$(pacman -Slq | fzf --preview 'pacman -Si {}') 
+
+[[ -z "$pkg" ]] && exit 0
+
+sudo pacman -S "$pkg"
+

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+choice=$(find "$HOME/theme" -type f -name "*.conf" -printf "%f\n" | "$HOME/bin/process-toggle" wofi -S dmenu -p theme)
+
+if [[ -n $choice ]]; then
+    fullpath="$HOME/theme/$choice"
+    "$HOME/bin/theme-generate" "$fullpath"
+fi
