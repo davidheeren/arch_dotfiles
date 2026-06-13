@@ -9,8 +9,8 @@ input_path = '~/.config/hypr/hyprlock/colors_template.conf'
 output_path = '~/.config/hypr/hyprlock/colors.conf'
 
 [templates.waybar]
-input_path = '~/.config/waybar/colors_template.css'
-output_path = '~/.config/waybar/colors.css'
+input_path = '~/.config/waybar/style_template.css'
+output_path = '~/.config/waybar/style.css'
 post_hook = 'pkill -SIGUSR2 waybar'
 
 [templates.kitty]
@@ -19,8 +19,8 @@ output_path = '~/.config/kitty/colors.conf'
 post_hook = 'pkill -SIGUSR1 kitty'
 
 [templates.wofi]
-input_path = '~/.config/wofi/colors_template.css'
-output_path = '~/.config/wofi/colors.css'
+input_path = '~/.config/wofi/style_template.css'
+output_path = '~/.config/wofi/style.css'
 
 [templates.dunst]
 input_path = '~/.config/dunst/dunstrc_template'

@@ -1,0 +1,101 @@
+
+* {
+    border-radius: 8px;
+    font-family: "Iosevka Nerd Font";
+    font-size: 15px;
+    padding: 0px;
+    margin: 0px;
+}
+
+window#waybar {
+    background: alpha({{colors.terminal.background.hex}}, 0.7);
+}
+
+.modules-left {
+    margin-left: 6px;
+}
+
+.modules-right {
+    margin-right: 6px;
+}
+
+#workspaces,
+#clock,
+#cpu,
+#memory,
+#battery,
+#network,
+#backlight,
+#pulseaudio {
+    background-color: {{colors.shadow.hex}};
+    padding: 2px 8px;
+    margin: 2px 0px;
+}
+
+#workspaces button {
+    color: {{colors.on_surface.hex}};
+    padding: 2px 6px;
+}
+
+#workspaces button.active {
+    background-color: {{colors.primary.hex}};
+    color: {{colors.on_primary.hex}};
+}
+
+#workspaces button.urgent {
+    background-color: {{colors.error.hex}};
+    color: {{colors.error.hex}};
+}
+
+#clock {
+    color: {{colors.tertiary.hex}};
+}
+
+#battery {
+    color: {{colors.secondary.hex}};
+}
+
+#battery.warning {
+    color: {{colors.tertiary.hex}};
+}
+
+#battery.critical {
+    color: {{colors.error.hex}};
+}
+
+#cpu {
+    color: {{colors.primary.hex}};
+}
+
+#cpu.critical {
+    color: {{colors.error.hex}};
+}
+
+#memory {
+    color: {{colors.on_surface.hex}};
+}
+
+#memory.critical {
+    color: {{colors.error.hex}};
+}
+
+#network {
+    color: {{colors.tertiary.hex}};
+    min-width: 100px;
+}
+
+#network.disconnected {
+    color: {{colors.error.hex}};
+}
+
+#pulseaudio {
+    color: {{colors.secondary.hex}};
+}
+
+#pulseaudio.muted {
+    color: {{colors.outline.hex}};
+}
+
+#backlight {
+    color: {{colors.on_surface.hex}};
+}

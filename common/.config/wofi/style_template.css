@@ -9,12 +9,12 @@
 }
 
 window {
-    background-color: alpha(@background, 0.6);
-    border: 4px solid @primary;
+    background-color: alpha({{colors.terminal.background.hex}}, 0.6);
+    border: 4px solid {{colors.primary.hex}};
 }
 
 #input {
-    background-color: alpha(@background, 0.6);
+    background-color: alpha({{colors.terminal.background.hex}}, 0.6);
     padding: 4px 12px;
     margin: 10px;
 }
@@ -31,20 +31,20 @@ window {
     padding: 8px;
     margin: 4px;
     min-height: 30px;
-    background-color: alpha(@background, 0.9);
+    background-color: alpha({{colors.terminal.background.hex}}, 0.9);
 }
 
 #entry:selected {
-    background-color: alpha(@primary, 0.9);
+    background-color: alpha({{colors.primary.hex}}, 0.9);
 }
 
 /* #entry:selected #text { */
 #text:selected {
-    color: @black;
+    color: {{colors.terminal.normal.black.hex}};
 }
 
 #text {
-    color: @white;
+    color: {{colors.terminal.normal.white.hex}};
 }
 
 #img {
