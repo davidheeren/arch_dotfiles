@@ -11,11 +11,15 @@ if [[ -z "$path" ]]; then
     path=$(echo "$path" | cut -d':' -f2)
 fi
 
+# randomize if selected
+if [[ "$path" == */random.* ]]; then
+    path=$(find "$dir" -type f | shuf -n 1)
+fi
+
 if [[ ! -f "$path" ]]; then
     echo "Error: "$path" is not a valid file"
     exit 1
 fi
 
 ln -sf "$path" "$HOME/pictures/wallpaper/current.local"
-
 "$HOME/bin/runbg" "$HOME/bin/process-restart" hyprpaper
