@@ -4,7 +4,7 @@
     /* new tab */
     --zen-colors-primary: {{colors.primary.hex}} !important;
     /* toolbar override */
-    /* --zen-navigator-toolbox-background: {{colors.on_tertiary.hex}} !important; */
+    /* this color is very similar for all themes */
     --zen-navigator-toolbox-background: {{colors.surface_variant.hex}} !important;
 
     /* Old css */
