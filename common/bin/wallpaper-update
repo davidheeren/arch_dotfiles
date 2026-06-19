@@ -5,9 +5,10 @@ path="$1"
 dir="$HOME/pictures/wallpaper" 
 
 if [[ -z "$path" ]]; then
+    # format like 'img:path_to_image:text:my_text'
     path=$(find "$dir" -type f -printf "img:%p:text:%f\n" | "$HOME/bin/process-toggle" wofi -S dmenu -p wallpaper --define image_size=128)
+    # grab the full path by getting the second column with a ':' delimiter
     path=$(echo "$path" | cut -d':' -f2)
-    echo "$path"
 fi
 
 if [[ ! -f "$path" ]]; then
