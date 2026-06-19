@@ -6,4 +6,3 @@ insensitive=true
 #matching = fuzzy
 matching = multi-contains
 key_expand=Tab
-

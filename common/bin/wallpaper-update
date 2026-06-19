@@ -5,8 +5,9 @@ path="$1"
 dir="$HOME/pictures/wallpaper" 
 
 if [[ -z "$path" ]]; then
-    path=$(find "$dir" -type f -printf "%f\n" | "$HOME/bin/process-toggle" wofi -S dmenu -p wallpaper)
-    path="$dir/$path"
+    path=$(find "$dir" -type f -printf "img:%p:text:%f\n" | "$HOME/bin/process-toggle" wofi -S dmenu -p wallpaper --define image_size=128)
+    path=$(echo "$path" | cut -d':' -f2)
+    echo "$path"
 fi
 
 if [[ ! -f "$path" ]]; then
