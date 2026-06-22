@@ -2,24 +2,60 @@
 
 path="$1"
 
+# TODO: add sub directory support (complex)
+# if want to use find: https://stackoverflow.com/questions/9612090/how-to-loop-through-file-names-returned-by-find
+
+# this assumes:
+# - all files in dir are images
+# - 16:9 images
+# - no subdirectories
 dir="$HOME/pictures/wallpaper" 
+thumb_width=128
+thumb_height=72
+
+cachedir="$HOME/.cache/wall_thumbs"
+mkdir -p "$cachedir"
 
 if [[ -z "$path" ]]; then
+    # Generate thumbnails & create input for wofi
+    winput=""
+    for f in "$dir"/*; do
+        if [[ ! -f "$f" ]]; then continue; fi
+
+        tf="$cachedir/"$(basename "$f")
+        bn=$(basename "$f")
+
+        # generate thumbail if not exist or image is newer
+        if [[ ! -f "$tf" || "$f" -nt "$tf" ]]; then
+            echo "Generating thumbnail for $bn"
+            magick "$f" -thumbnail "${thumb_width}x${thumb_height}" "$tf"
+        fi
+
+        winput+="img:$tf:text:$bn"$'\n'
+    done
+    # remove trailing newline
+    winput="${winput%$'\n'}"
+
+    # Choose path if not an argument, with showing pictures
     # format like 'img:path_to_image:text:my_text'
-    path=$(find "$dir" -type f -printf "img:%p:text:%f\n" | "$HOME/bin/process-toggle" wofi -S dmenu -p wallpaper --define image_size=128)
+    path=$(echo "$winput" | "$HOME/bin/process-toggle" wofi -S dmenu -p wallpaper --define image_size=$thumb_width)
     # grab the full path by getting the second column with a ':' delimiter
     path=$(echo "$path" | cut -d':' -f2)
+    # convert from thumb to pic
+    path="$dir/"$(basename "$path")
 fi
 
-# randomize if selected
+# Randomize if selected
 if [[ "$path" == */random.* ]]; then
     path=$(find "$dir" -type f | shuf -n 1)
 fi
 
+# Validate file
 if [[ ! -f "$path" ]]; then
     echo "Error: "$path" is not a valid file"
     exit 1
 fi
 
+# Update wallpaper
 ln -sf "$path" "$HOME/pictures/wallpaper/current.local"
 "$HOME/bin/runbg" "$HOME/bin/process-restart" hyprpaper
