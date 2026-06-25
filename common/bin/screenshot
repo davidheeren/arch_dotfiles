@@ -17,11 +17,15 @@ fi
 action=$(dunstify --action="rename,Rename" "Screenshot taken")
 
 if [[ "$action" == "rename" ]]; then
-    new_file_name=$(echo "$file_path" | "$HOME/bin/process-toggle" wofi -S dmenu -p "screenshot_name")
-    if [[ -z "$new_file_name" ]]; then
+    new_file_name=$(echo "$file_name" | "$HOME/bin/process-toggle" wofi -S dmenu -p "screenshot_name")
+
+    if [[ "$new_file_name" == "del" ]]; then
+        rm "$file_path"
         exit
     fi
+
     new_file_path="$file_dir/$new_file_name$file_extension"
-    mv "$file_path" "$new_file_path"
-    # kitty -d "$file_dir"
+    if [[ "$new_file_path" != "$file_path" ]]; then
+        mv "$file_path" "$new_file_path"
+    fi
 fi

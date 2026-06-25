@@ -34,6 +34,10 @@
     max_icon_size = 80
     icon_path = /usr/share/icons/Paper/16x16/mimetypes/:/usr/share/icons/Paper/48x48/status/:/usr/share/icons/Paper/16x16/devices/:/usr/share/icons/Paper/48x48/notifications/:/usr/share/icons/Paper/48x48/emblems/
     frame_width = 2
+    # Mouse actions
+    mouse_left_click=close_current
+    mouse_right_click=do_action, remove_current
+    mouse_middle_click=close_all
 
 [play_sound]
     summary = "*"
