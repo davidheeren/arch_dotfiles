@@ -41,7 +41,11 @@
 
 #[play_sound]
     #summary = "*"
-    #script = ~/bin/play-notification
+    #script = ~/bin/notification-play
+
+[silent_group]
+    appname = "silent"
+    history_ignore = yes
 
 [urgency_low]
     background = "{{colors.terminal.background.hex}}"

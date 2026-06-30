@@ -133,6 +133,8 @@ hl.bind(main_mod .. " + M", hl.dsp.exec_cmd("thunderbird"), { description = "Ope
 hl.bind(main_mod .. " + S", hl.dsp.exec_cmd("spotify-launcher"), { description = "Open spotify" })
 hl.bind(main_mod .. " + O", hl.dsp.exec_cmd("onlyoffice-desktopeditors"), { description = "Open onlyoffice" })
 hl.bind(main_mod .. " + E", hl.dsp.exec_cmd("thunar"), { description = "Open file manager" })
+hl.bind(main_mod .. " + SHIFT + N", hl.dsp.exec_cmd("dunstctl close-all"), { description = "Close all notifications" })
+hl.bind(main_mod .. " + N", hl.dsp.exec_cmd("dunstctl history-pop"), { description = "Show notification history" })
 hl.bind(main_mod .. " + G", hl.dsp.exec_cmd("gtk-launch chatgpt"), { description = "Open chatgpt" })
 hl.bind(main_mod .. " + A", hl.dsp.exec_cmd("gtk-launch amplenote"), { description = "Open amplenote" })
 hl.bind(main_mod .. " + T", hl.dsp.exec_cmd("~/bin/bookmark-open"), { description = "Open bookmark url" })
@@ -145,7 +147,7 @@ hl.bind(main_mod .. " + SHIFT + P", hl.dsp.window.pin(), { description = "Toggle
 hl.bind(main_mod .. " + SHIFT + K", hl.dsp.exec_cmd("hyprbind -d | ~/bin/process-toggle wofi -S dmenu"), { description = "Show hyprland keybinds" })
 hl.bind(main_mod .. " + SHIFT + W", hl.dsp.exec_cmd("~/bin/wallpaper-update"), { description = "Change wallpaper" })
 
--- fun
+-- Fun
 hl.bind(main_mod .. " + SHIFT + L", hl.dsp.exec_cmd("[fullscreen] kitty -o background_opacity=0.0 pipes.sh -p 2"), { description = "Fullscreen pipes animation" })
 
 -- Screeenshot

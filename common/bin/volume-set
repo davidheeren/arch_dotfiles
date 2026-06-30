@@ -17,8 +17,8 @@ esac
 status=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
 
 if [[ $status == *MUTED* ]]; then
-    dunstify -u low -r 111 -t 750 "Muted"
+    dunstify -u low -r 111 -t 750 -a "silent" "Muted"
 else
     volume=$(echo $status | awk '{printf $2 * 100}')
-    dunstify -u low -r 111 -t 750 "Volume: ${volume}%"
+    dunstify -u low -r 111 -t 750 -a "silent" "Volume: ${volume}%"
 fi

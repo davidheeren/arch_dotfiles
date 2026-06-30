@@ -1,0 +1,9 @@
+#!/bin/bash
+
+APP_NAME="$1"
+
+if [[ "$APP_NAME" == "silent" ]]; then
+    exit 
+fi
+
+paplay "$HOME/audio/system_sfx/alert.mp3"

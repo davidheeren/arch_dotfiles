@@ -1,8 +1,5 @@
 
-gtk import relative path
 port all old hyprland.conf keybinds
-
-bin shell scripts
 
 polish waybar colors
 polish neovim colors

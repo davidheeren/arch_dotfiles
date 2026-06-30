@@ -1,3 +1,0 @@
-#!/bin/bash
-
-paplay "$HOME/audio/system_sfx/alert.mp3"
