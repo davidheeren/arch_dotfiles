@@ -142,7 +142,7 @@ hl.bind(main_mod .. " + V", hl.dsp.exec_cmd("~/bin/clip-menu"), { description = 
 hl.bind(main_mod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }), { description = "Toggle floating window" })
 hl.bind(main_mod .. " + SPACE", hl.dsp.exec_cmd("~/bin/process-toggle wofi -S drun -p app"), { description = "Open app" })
 hl.bind(main_mod .. " + SHIFT + P", hl.dsp.window.pin(), { description = "Toggle pin window across workspaces" })
-hl.bind(main_mod .. " + SHIFT + K", hl.dsp.exec_cmd("hyprbind -d | wofi -S dmenu"), { description = "Show hyprland keybinds" })
+hl.bind(main_mod .. " + SHIFT + K", hl.dsp.exec_cmd("hyprbind -d | ~/bin/process-toggle wofi -S dmenu"), { description = "Show hyprland keybinds" })
 hl.bind(main_mod .. " + SHIFT + W", hl.dsp.exec_cmd("~/bin/wallpaper-update"), { description = "Change wallpaper" })
 
 -- fun

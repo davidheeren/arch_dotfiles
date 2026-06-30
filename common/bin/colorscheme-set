@@ -1,0 +1,10 @@
+#!/bin/bash
+
+dir="$HOME/colorschemes"
+
+scheme=$(ls "$dir" | "$HOME/bin/process-toggle" wofi -S dmenu -p colorscheme)
+scheme="$dir/$scheme"
+
+if [[ -f "$scheme" ]]; then
+    matugen json "$scheme"
+fi
