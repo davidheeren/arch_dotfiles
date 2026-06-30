@@ -1,0 +1,16 @@
+#!/bin/bash
+
+case "$1" in
+    up)
+        brightnessctl -e4 -n2 set 5%+
+        ;;
+    down)
+        brightnessctl -e4 -n2 set 5%-
+        ;;
+esac
+
+brightness=$(brightnessctl get)
+max=$(brightnessctl max)
+percent=$(( brightness * 100 / max ))
+
+dunstify -u low -r 112 -t 750 "Brightness: ${percent}%"

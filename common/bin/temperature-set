@@ -1,0 +1,14 @@
+#!/bin/bash
+
+case "$1" in
+    warmer)
+        hyprctl hyprsunset temperature -500
+        ;;
+    cooler)
+        hyprctl hyprsunset temperature +500
+        ;;
+esac
+
+temp=$(hyprctl hyprsunset temperature)
+
+dunstify -u low -r 113 -t 750 "Color Temperature: ${temp}K"

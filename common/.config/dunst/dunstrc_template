@@ -39,9 +39,9 @@
     mouse_right_click=do_action, remove_current
     mouse_middle_click=close_all
 
-[play_sound]
-    summary = "*"
-    script = ~/bin/play-notification
+#[play_sound]
+    #summary = "*"
+    #script = ~/bin/play-notification
 
 [urgency_low]
     background = "{{colors.terminal.background.hex}}"
