@@ -13,4 +13,4 @@ brightness=$(brightnessctl get)
 max=$(brightnessctl max)
 percent=$(( brightness * 100 / max ))
 
-dunstify -u low -r 112 -t 750 "Brightness: ${percent}%"
+dunstify -u low -r 112 -t 750 -a "silent" "Brightness: ${percent}%"

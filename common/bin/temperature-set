@@ -11,4 +11,4 @@ esac
 
 temp=$(hyprctl hyprsunset temperature)
 
-dunstify -u low -r 113 -t 750 "Color Temperature: ${temp}K"
+dunstify -u low -r 113 -t 750 -a "silent" "Color Temperature: ${temp}K"
