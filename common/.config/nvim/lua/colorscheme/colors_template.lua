@@ -1,20 +1,70 @@
 return {
-    base00 = "{{colors.surface.hex}}",                 -- Default background
-    base01 = "{{colors.surface_variant.hex}}",         -- Lighter background (status bars)
-    -- base02 = "{{colors.terminal.selection_bg.hex}}",   -- Selection background
-    base02 = "{{colors.outline.hex}}",   -- Selection background
-    base03 = "{{colors.terminal.bright.black.hex}}",   -- Comments, line highlighting
-    -- base04 = "{{colors.outline.hex}}",                 -- Dark foreground (status bars)
-    base04 = "{{colors.terminal.bright.black.hex}}",   -- Dark foreground (status bars)
-    base05 = "{{colors.on_surface.hex}}",              -- Default foreground
-    base06 = "{{colors.on_surface.hex}}",              -- Light foreground
-    base07 = "#ffffff",                                -- Lightest foreground
-    base08 = "{{colors.terminal.normal.red.hex}}",     -- Red (variables, errors)
-    base09 = "{{colors.terminal.normal.magenta.hex}}", -- Orange (integers, constants)
-    base0A = "{{colors.terminal.normal.yellow.hex}}",  -- Yellow (classes, search)
-    base0B = "{{colors.terminal.normal.green.hex}}",   -- Green (strings, success)
-    base0C = "{{colors.terminal.normal.cyan.hex}}",    -- Cyan (support, regex)
-    base0D = "{{colors.terminal.normal.blue.hex}}",    -- Blue (functions, info)
-    base0E = "{{colors.primary.hex}}",                 -- Purple (keywords, changes)
-    base0F = "{{colors.tertiary.hex}}",                -- Brown (deprecated)
+    -- (ai) Main editor background (`Normal` guibg).
+    -- Current line highlight
+    base00 = "{{colors.surface.hex}}",
+
+    -- (ai) Background for current line (`CursorLine` guibg), pop-up menus (`PMenu` guibg), and inactive status bar (`StatusLineNC` guibg).
+    -- Bottom status bar
+    base01 = "{{colors.surface_variant.hex}}",
+
+    -- (ai) Background for active status bar (`StatusLine` guibg) and visual selection (`Visual` guibg).
+    -- Current line
+    -- Current completion option
+    base02 = "{{colors.outline.hex}}",
+
+    -- (ai) Foreground for comments (`Comment` guifg) and other deemphasized text. This was the color you originally found too dark.
+    -- Line numbers
+    -- Box outlines
+    base03 = "{{colors.terminal.bright.black.hex}}",
+
+    -- (ai) Dim foreground for line numbers (`LineNr` guifg), inactive status text (`StatusLineNC` guifg), and secondary completion text (`CmpItemMenu` guifg).
+    -- Exceptions, [] () {} : etc
+    -- Non matching characters in completion
+    -- Comments
+    base04 = "{{colors.on_surface_variant.hex}}",
+
+    -- (ai) Main foreground color for text (`Normal` guifg).
+    -- Variables
+    -- Text on status bar
+    base05 = "{{colors.secondary.hex}}",
+
+    -- ??
+    -- (ai) A secondary, bright foreground color. Used in ts-rainbow and some plugins like Diffview.
+    base06 = "#FF0000",
+
+    -- ??
+    -- (ai) The brightest foreground color. Used in ts-rainbow and as the bright white in the terminal.
+    base07 = "#FF0000",
+
+    -- Red
+    -- (ai) Used for errors, deleted lines, and some variables/identifiers.
+    base08 = "{{colors.error.hex}}",
+
+    -- Orange
+    -- (ai) Used for constants, numbers, and booleans. Mapped to yellow as it's often the closest color.
+    base09 = "{{colors.terminal.normal.yellow.hex}}",
+
+    -- Yellow
+    -- (ai) Used for types, classes, and search result backgrounds. Your mapping to `secondary` is kept, but note it can be inconsistent across themes.
+    base0A = "{{colors.secondary.hex}}",
+
+    -- Green
+    -- (ai) Used for strings and added lines.
+    base0B = "{{colors.terminal.normal.green.hex}}",
+
+    -- Cyan
+    -- (ai) Used for special characters, regex, and support functions.
+    base0C = "{{colors.terminal.normal.cyan.hex}}",
+
+    -- Blue
+    -- (ai) Used for functions, methods, and headings.
+    base0D = "{{colors.terminal.normal.blue.hex}}",
+
+    -- Magenta
+    -- (ai) Used for keywords, conditionals, and operators.
+    base0E = "{{colors.terminal.normal.magenta.hex}}",
+
+    -- ?? Brown
+    -- (ai) Used for delimiters and special punctuation. Mapped to `tertiary` as a suitable accent.
+    base0F = "#FF0000",
 }
