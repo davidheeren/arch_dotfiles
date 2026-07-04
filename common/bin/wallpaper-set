@@ -3,6 +3,7 @@
 path="$1"
 
 # TODO: add sub directory support (complex)
+# TODO: for some reason this generates a thumbnail for current.local
 # if want to use find: https://stackoverflow.com/questions/9612090/how-to-loop-through-file-names-returned-by-find
 
 # this assumes:
