@@ -27,7 +27,9 @@
 - noctalia shell for some templates and colorschemes
 
 ## Notes
-- does not stow /etc files by default
+- does not stow /etc files by default; manually copy those
 - ln -s ~/.zen/your_profile/chrome ~/.config/zen_custom/userChrome.css
+
+### Hyprbind
 - wget https://github.com/ry2x/HyprBind/releases/download/v0.1.4/hyprbind-0.1.4-1-x86_64.pkg.tar.zst
 - sudo pacman -U hyprbind-0.1.4-1-x86_64.pkg.tar.zst
