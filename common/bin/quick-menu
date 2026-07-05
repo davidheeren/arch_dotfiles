@@ -5,6 +5,7 @@ declare -A actions
 actions['services/wifi']="kitty nmtui"
 actions['services/bluetooth']="kitty bluetui"
 actions['services/audio']="kitty wiremix"
+actions['services/process-monitor']="kitty btm"
 actions['system/suspend']="systemctl suspend"
 actions['system/reboot']="systemctl reboot"
 actions['system/shutdown']="systemctl poweroff"
