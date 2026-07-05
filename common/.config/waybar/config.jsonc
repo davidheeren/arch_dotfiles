@@ -27,9 +27,9 @@
     "hyprland/workspaces": {
         "show-special": true,
         "special-visible-only": true,
-        "format": "{name}{windows}",
+        "format": "{name}",
+        // "format": "{name}{windows}",
         "format-window-separator": "",
-        // "window-rewrite-default": "■",
         "window-rewrite-default": ".",
         // necessary to be empty for some reason
         "window-rewrite": {}
