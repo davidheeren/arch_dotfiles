@@ -15,6 +15,7 @@ actions['system/exit']="hyprctl dispatch 'hl.dsp.exit()'"
 actions['wallpaper/set']="$HOME/bin/wallpaper-set"
 actions['colorscheme/set']="$HOME/bin/colorscheme-set"
 actions['information/keybinds']="hyprbind -d | wofi -S dmenu"
+actions['picker/emoji']="$HOME/bin/emoji-picker"
 
 choice=$(printf '%s\n' "${!actions[@]}" | "$HOME/bin/process-toggle" wofi -S dmenu -p action)
 [[ -n "$choice" ]] && eval "${actions[$choice]}"
