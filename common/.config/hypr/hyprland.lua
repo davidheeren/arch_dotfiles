@@ -28,6 +28,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("wl-paste --watch cliphist store")
     hl.exec_cmd("wl-clip-persist --clipboard regular")
     hl.exec_cmd("waybar")
+    hl.exec_cmd("ntfy sub links ~/bin/ntfy-recieve-links")
     -- https://wiki.hypr.land/Hypr-Ecosystem/hyprpolkitagent
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
 end)

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# run ntfy sub links ~/bin/ntfy-recieve-links
+# add default-host: "" to .config/ntfy/client.yml
+# this isn't the most secure, but I trust anyone on my home server and I see the link before opening it
+
+title="$t"
+link=$(echo "$m" | jq -r '.link')
+# link="$m"
+
+action=$(dunstify "$title" "$link" -A "open,Open")
+
+if [[ "$action" = "open" ]]; then
+    zen-browser "$link"
+fi
