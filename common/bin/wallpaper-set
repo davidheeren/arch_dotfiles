@@ -21,7 +21,8 @@ if [[ -z "$path" ]]; then
     # Generate thumbnails & create input for wofi
     winput=""
     for f in "$dir"/*; do
-        if [[ ! -f "$f" ]]; then continue; fi
+        # skip if path is not a file or is a symlink
+        if [[ ! -f "$f" || -L "$f" ]]; then continue; fi
 
         tf="$cachedir/"$(basename "$f")
         bn=$(basename "$f")
