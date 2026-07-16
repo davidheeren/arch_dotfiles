@@ -3,10 +3,18 @@
 # run ntfy sub links ~/bin/ntfy-recieve-links
 # add default-host: "" to .config/ntfy/client.yml
 # this isn't the most secure, but I trust anyone on my home server and I see the link before opening it
+# at least checking against a regex gets rid of some attacks or accident link sends
+
+# Source - https://stackoverflow.com/a/3184819
+regex='(https?)://[-[:alnum:]\+&@#/%?=~_|!:,.;]+'
 
 title="$t"
 link=$(echo "$m" | jq -r '.link')
-# link="$m"
+
+if [[ ! "$link" =~ $regex ]]; then 
+    dunstify "URL is not valid" "$link"
+    exit
+fi
 
 action=$(dunstify "$title" "$link" -A "open,Open")
 
