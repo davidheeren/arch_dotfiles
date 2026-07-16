@@ -36,8 +36,6 @@ end)
 -- Environment vars
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
--- for dolphin but kinda broken
--- hl.env("XDG_MENU_PREFIX", "arch-")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 
 hl.config({
@@ -126,7 +124,6 @@ local main_mod = "SUPER" -- Sets "Windows" key as main modifier
 hl.bind(main_mod .. " + RETURN", hl.dsp.exec_cmd("kitty"), { description = "Open terminal" })
 hl.bind(main_mod .. " + Q", hl.dsp.window.close(), { description = "Close window" })
 hl.bind(main_mod .. " + F", hl.dsp.window.fullscreen(), { description = "Toggle fullscreeen window" })
--- hl.bind(main_mod .. " + ESCAPE", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(main_mod .. " + BACKSPACE", hl.dsp.exec_cmd("~/bin/quick-menu"), { description = "Open quick menu" })
 hl.bind(main_mod .. " + B", hl.dsp.exec_cmd("zen-browser"), { description = "Open browser" })
 hl.bind(main_mod .. " + Z", hl.dsp.exec_cmd("zeditor"), { description = "Open gui code editor" })
@@ -141,7 +138,8 @@ hl.bind(main_mod .. " + A", hl.dsp.exec_cmd("gtk-launch amplenote"), { descripti
 hl.bind(main_mod .. " + T", hl.dsp.exec_cmd("~/bin/bookmark-open"), { description = "Open bookmark url" })
 hl.bind(main_mod .. " + W", hl.dsp.exec_cmd("~/bin/process-toggle waybar"), { description = "Toggle waybar" })
 hl.bind(main_mod .. " + V", hl.dsp.exec_cmd("~/bin/clip-menu"), { description = "Open clipboard history" })
--- hl.bind(main_mod .. " + SHIFT + T", hl.dsp.exec_cmd("~/bin/theme-choose"), { description = "Choose theme"})
+hl.bind(main_mod .. " + SHIFT + W", hl.dsp.exec_cmd("~/bin/wallpaper-set"), { description = "Choose wallpaper"})
+hl.bind(main_mod .. " + SHIFT + C", hl.dsp.exec_cmd("~/bin/colorscheme-set"), { description = "Choose colorscheme"})
 hl.bind(main_mod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }), { description = "Toggle floating window" })
 hl.bind(main_mod .. " + SPACE", hl.dsp.exec_cmd("~/bin/process-toggle wofi -S drun -a -p app"), { description = "Open app" })
 hl.bind(main_mod .. " + SHIFT + P", hl.dsp.window.pin(), { description = "Toggle pin window across workspaces" })
