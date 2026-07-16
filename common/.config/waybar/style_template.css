@@ -48,6 +48,10 @@ window#waybar {
     color: {{colors.error.hex}};
 }
 
+#mpris {
+    color: {{colors.on_surface.hex}};
+}
+
 #clock {
     color: {{colors.tertiary.hex}};
 }
