@@ -9,7 +9,8 @@
     "margin-bottom": 0,
     "margin-left": 8,
     "modules-left": [
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "mpris"
         // "tray"
     ],
     "modules-center": [
@@ -22,7 +23,6 @@
         "network",
         "pulseaudio",
         "backlight"
-        // "mpris"
     ],
     "hyprland/workspaces": {
         "show-special": true,
@@ -39,6 +39,11 @@
     //     "spacing": 10,
     //     "show-passive-items": true
     // },
+    "mpris": {
+        "format": "▶ <i>{artist} - {title}</i>",
+        "format-paused": "⏸ <i>{artist} - {title}</i>",
+        "max-length": 30
+    },
     "clock": {
         // "format": " {:%I:%M %p - %a, %d %b}",
         "format": "  {:%I:%M %p - %a, %d %b}",
