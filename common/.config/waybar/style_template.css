@@ -45,7 +45,7 @@ window#waybar {
 
 #workspaces button.urgent {
     background-color: {{colors.error.hex}};
-    color: {{colors.error.hex}};
+    color: {{colors.on_primary.hex}};
 }
 
 #mpris {
