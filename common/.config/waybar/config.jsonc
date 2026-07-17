@@ -40,8 +40,8 @@
     //     "show-passive-items": true
     // },
     "mpris": {
-        "format": "▶ <i>{artist} - {title}</i>",
-        "format-paused": "⏸ <i>{artist} - {title}</i>",
+        "format": "⏸ <i>{artist} - {title}</i>",
+        "format-paused": "▶ <i>{artist} - {title}</i>",
         "max-length": 30
     },
     "clock": {
