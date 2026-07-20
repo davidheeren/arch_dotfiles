@@ -1,27 +1,31 @@
 #!/bin/bash
 
+scheme="$1"
+
 dir="$HOME/colorschemes"
 
-args=""
-for f in "$dir/"*.json; do
-    # basename - extension
-    name=$(basename "${f%.*}")
-    # get colors field and strip all "
-    primary_color=$(jq '.colors.primary.color' "$f" | sed 's/"//g')
-    secondary_color=$(jq '.colors.secondary.color' "$f" | sed 's/"//g')
-    tertiary_color=$(jq '.colors.tertiary.color' "$f" | sed 's/"//g')
-    args+="$name : "
-    # other chars: \u25cf, \u25a0
-    args+="<span foreground='$primary_color'>\u2588\u2588 </span>"
-    args+="<span foreground='$secondary_color'>\u2588\u2588 </span>"
-    args+="<span foreground='$tertiary_color'>\u2588\u2588 </span>"
-    args+="\n"
-done
+if [[ -z "$scheme" ]]; then
+    args=""
+    for f in "$dir/"*.json; do
+        # basename - extension
+        name=$(basename "${f%.*}")
+        # get colors field and strip all "
+        primary_color=$(jq '.colors.primary.color' "$f" | sed 's/"//g')
+        secondary_color=$(jq '.colors.secondary.color' "$f" | sed 's/"//g')
+        tertiary_color=$(jq '.colors.tertiary.color' "$f" | sed 's/"//g')
+        args+="$name : "
+        # other chars: \u25cf, \u25a0
+        args+="<span foreground='$primary_color'>\u2588\u2588 </span>"
+        args+="<span foreground='$secondary_color'>\u2588\u2588 </span>"
+        args+="<span foreground='$tertiary_color'>\u2588\u2588 </span>"
+        args+="\n"
+    done
 
-result=$(echo -en "$args" | "$HOME/bin/process-toggle" wofi -S dmenu -p colorscheme)
-# get text before : and strip trailing spaces
-scheme=$(echo "$result" | cut -d ':' -f 1 | sed 's/[[:space:]]*$//')
-scheme="$dir/$scheme.json"
+    result=$(echo -en "$args" | "$HOME/bin/process-toggle" wofi -S dmenu -p colorscheme)
+    # get text before : and strip trailing spaces
+    scheme=$(echo "$result" | cut -d ':' -f 1 | sed 's/[[:space:]]*$//')
+    scheme="$dir/$scheme.json"
+fi
 
 if [[ -f "$scheme" ]]; then
     matugen json "$scheme"
