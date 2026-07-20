@@ -21,7 +21,7 @@ if [[ -z "$scheme" ]]; then
         args+="\n"
     done
 
-    result=$(echo -en "$args" | "$HOME/bin/process-toggle" wofi -S dmenu -p colorscheme)
+    result=$(echo -en "$args" | "$HOME/bin/process-toggle" wofi -m -S dmenu -p colorscheme)
     # get text before : and strip trailing spaces
     scheme=$(echo "$result" | cut -d ':' -f 1 | sed 's/[[:space:]]*$//')
     scheme="$dir/$scheme.json"

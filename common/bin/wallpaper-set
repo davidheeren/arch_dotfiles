@@ -40,7 +40,7 @@ if [[ -z "$path" ]]; then
 
     # Choose path if not an argument, with showing pictures
     # format like 'img:path_to_image:text:my_text'
-    path=$(echo "$winput" | "$HOME/bin/process-toggle" wofi -S dmenu -p wallpaper --define image_size=$thumb_width)
+    path=$(echo "$winput" | "$HOME/bin/process-toggle" wofi -I -S dmenu -p wallpaper --define image_size=$thumb_width)
     # grab the full path by getting the second column with a ':' delimiter
     path=$(echo "$path" | cut -d':' -f2)
     # convert from thumb to pic

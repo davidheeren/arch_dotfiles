@@ -2,7 +2,7 @@
 
 # wofi entries eat into the right border. not sure why theres this much padding
 
-clip=$(cliphist -preview-width 80 list | "$HOME/bin/process-toggle" wofi -S dmenu -p clip)
+clip=$(cliphist -preview-width 80 list | "$HOME/bin/process-toggle" wofi -S dmenu -p clip -k /dev/null)
 
 if [[ -n "$clip" ]]; then
     echo "$clip" | cliphist decode | wl-copy

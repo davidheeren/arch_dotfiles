@@ -1,0 +1,29 @@
+#!/bin/bash
+
+start=$(cliphist -preview-width 80 list | "$HOME/bin/process-toggle" wofi -S dmenu -p lower_entry -k /dev/null)
+if [[ -z "$start" ]]; then exit; fi
+
+end=$(cliphist -preview-width 80 list | "$HOME/bin/process-toggle" wofi -S dmenu -p higher_entry -k /dev/null)
+if [[ -z "$end" ]]; then exit; fi
+
+del=$("$HOME/bin/process-toggle" wofi -S dmenu -p delimiter)
+if [[ -z "$del" ]]; then exit; fi
+
+start_idx=$(echo "$start" | cut -f 1)
+end_idx=$(echo "$end" | cut -f 1)
+
+concat=""
+for (( i=start_idx; i<=end_idx; i++ )); do
+    entry="$(cliphist decode $i)"
+    if [[ -z "$entry" ]]; then
+        continue
+    fi
+
+    concat+="$entry"
+
+    if [[ $i != "$end_idx" ]]; then
+        concat+="$del"
+    fi
+done
+
+echo -e "$concat" | wl-copy
