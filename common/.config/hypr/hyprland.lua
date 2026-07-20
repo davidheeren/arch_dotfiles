@@ -244,6 +244,11 @@ hl.window_rule({
     no_focus = true,
 })
 
+hl.window_rule({
+    name = "semi-transparent",
+    match = { class = ".*(kitty|chrome).*", },
+    opacity = "0.8 override 0.5 override"
+})
 
 -- trying to have lonely windows start full width but be able to be dynamically ajusted
 -- hl.window_rule({
