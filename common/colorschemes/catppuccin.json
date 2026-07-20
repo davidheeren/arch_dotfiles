@@ -4,25 +4,25 @@
             "color": "#cba6f7"
         },
         "on_primary": {
-            "color": "#11111b"
+            "color": "#232338"
         },
         "secondary": {
             "color": "#fab387"
         },
         "on_secondary": {
-            "color": "#11111b"
+            "color": "#232338"
         },
         "tertiary": {
             "color": "#94e2d5"
         },
         "on_tertiary": {
-            "color": "#11111b"
+            "color": "#232338"
         },
         "error": {
             "color": "#f38ba8"
         },
         "on_error": {
-            "color": "#11111b"
+            "color": "#232338"
         },
         "surface": {
             "color": "#1e1e2e"
@@ -40,13 +40,13 @@
             "color": "#4c4f69"
         },
         "shadow": {
-            "color": "#11111b"
+            "color": "#232338"
         },
         "hover": {
             "color": "#94e2d5"
         },
         "on_hover": {
-            "color": "#11111b"
+            "color": "#232338"
         },
         "terminal": {
             "normal": {
