@@ -26,6 +26,9 @@
 ## Sources
 - noctalia shell for some templates and colorschemes
 
+## Links
+- https://github.com/tinted-theming/base16-gtk-flatcolor
+
 ## Notes
 - does not stow /etc files by default; manually copy those
 - ln -s ~/.zen/your_profile/chrome ~/.config/zen_custom/userChrome.css

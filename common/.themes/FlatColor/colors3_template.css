@@ -1,0 +1,9 @@
+@define-color bg_color {{colors.surface.hex}};
+@define-color fg_color {{colors.on_surface.hex}};
+@define-color base_color {{colors.surface_variant.hex}};
+@define-color text_color {{colors.on_surface.hex}};
+@define-color text_color_disabled {{colors.outline.hex}};
+@define-color selected_bg_color {{colors.on_primary.hex}};
+@define-color selected_fg_color {{colors.primary.hex}};
+@define-color tooltip_bg_color {{colors.surface.hex}};
+@define-color tooltip_fg_color {{colors.on_surface.hex}};
