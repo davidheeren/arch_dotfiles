@@ -246,7 +246,7 @@ hl.window_rule({
 
 hl.window_rule({
     name = "semi-transparent",
-    match = { class = ".*(kitty|chrome).*", },
+    match = { class = ".*(kitty|chrome|thunar).*", },
     opacity = "0.8 override 0.5 override"
 })
 
