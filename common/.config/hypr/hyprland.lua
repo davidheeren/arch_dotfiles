@@ -138,11 +138,13 @@ hl.bind(main_mod .. " + A", hl.dsp.exec_cmd("gtk-launch amplenote"), { descripti
 hl.bind(main_mod .. " + T", hl.dsp.exec_cmd("~/bin/bookmark-open"), { description = "Open bookmark url" })
 hl.bind(main_mod .. " + W", hl.dsp.exec_cmd("~/bin/process-toggle waybar"), { description = "Toggle waybar" })
 hl.bind(main_mod .. " + V", hl.dsp.exec_cmd("~/bin/clip-menu"), { description = "Open clipboard history" })
-hl.bind(main_mod .. " + SHIFT + W", hl.dsp.exec_cmd("~/bin/wallpaper-set"), { description = "Choose wallpaper"})
-hl.bind(main_mod .. " + SHIFT + C", hl.dsp.exec_cmd("~/bin/colorscheme-set"), { description = "Choose colorscheme"})
+hl.bind(main_mod .. " + SHIFT + W", hl.dsp.exec_cmd("~/bin/wallpaper-set"), { description = "Choose wallpaper" })
+hl.bind(main_mod .. " + SHIFT + C", hl.dsp.exec_cmd("~/bin/colorscheme-set"), { description = "Choose colorscheme" })
 hl.bind(main_mod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }), { description = "Toggle floating window" })
 hl.bind(main_mod .. " + SPACE", hl.dsp.exec_cmd("~/bin/process-toggle wofi -S drun -a -p app"), { description = "Open app" })
 hl.bind(main_mod .. " + SHIFT + P", hl.dsp.window.pin(), { description = "Toggle pin window across workspaces" })
+hl.bind(main_mod .. " + SHIFT + T", hl.dsp.window.set_prop({ prop = "opaque", value = "toggle", window = "active" }),
+    { description = "Toggle active window transparency" })
 hl.bind(main_mod .. " + SHIFT + K", hl.dsp.exec_cmd("hyprbind -d | ~/bin/process-toggle wofi -S dmenu"), { description = "Show hyprland keybinds" })
 hl.bind(main_mod .. " + SHIFT + W", hl.dsp.exec_cmd("~/bin/wallpaper-update"), { description = "Change wallpaper" })
 
@@ -247,7 +249,7 @@ hl.window_rule({
 hl.window_rule({
     name = "semi-transparent",
     match = { class = ".*(kitty|chrome|thunar).*", },
-    opacity = "0.8 override 0.5 override"
+    opacity = "0.8 override 0.5 override 0.8 override"
 })
 
 -- trying to have lonely windows start full width but be able to be dynamically ajusted
