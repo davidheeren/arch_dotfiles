@@ -22,6 +22,10 @@ vim.keymap.set("n", "<leader>O", "O<esc>")
 -- vim.keymap.set("n", "<M-h>", "<C-w>h")
 -- vim.keymap.set("n", "<M-l>", "<C-w>l")
 
+vim.keymap.set("n", "<C-w>s", ":vsplit<CR>")
+  -- vim.o.splitright = true
+  -- vim.o.splitbelow = true
+
 -- vim.keymap.set("n", "<C-b>", "<cmd>b#<cr>")
 vim.keymap.set("n", "grd", vim.lsp.buf.definition)
 

@@ -24,6 +24,7 @@ alias lfcd='cd "$(command lf -print-last-dir "$@")"'
 alias cdg='cd $(git rev-parse --show-toplevel)'
 alias sourcepy='source .venv/bin/activate'
 alias sourcesh='source ~/.zshrc'
+alias treeg='tree --gitignore'
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
