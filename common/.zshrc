@@ -153,6 +153,3 @@ setopt append_history inc_append_history share_history # better history
 # on exit, history appends rather than overwrites; history is appended as soon as cmds executed; history shared across sessions
 setopt dot_glob # include dotfiles
 setopt extended_glob # match - # ^
-
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"

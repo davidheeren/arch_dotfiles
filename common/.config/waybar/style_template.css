@@ -35,18 +35,28 @@ window#waybar {
 }
 
 #workspaces button {
-    color: {{colors.on_surface.hex}};
     padding: 2px 8px;
+}
+
+#workspaces button label {
+    color: {{colors.on_surface.hex}};
 }
 
 #workspaces button.active {
     background-color: {{colors.primary.hex}};
-    color: {{colors.on_primary.hex}};
+}
+
+#workspaces button.active label {
+    color: {{colors.on_secondary.hex}};
 }
 
 #workspaces button.urgent {
     background-color: {{colors.error.hex}};
     color: {{colors.on_primary.hex}};
+}
+
+#workspaces button.urgent label {
+    color: {{colors.on_secondary.hex}};
 }
 
 #mpris {
