@@ -81,8 +81,8 @@ hl.config({
 
 hl.config({
     misc = {
-        force_default_wallpaper = -1,    -- Set to 0 or 1 to disable the anime mascot wallpapers
-        disable_hyprland_logo   = false, -- If true disables the random hyprland logo / anime girl background. :(
+        force_default_wallpaper = 1,    -- Set to 0 or 1 to disable the anime mascot wallpapers
+        disable_hyprland_logo   = true, -- If true disables the random hyprland logo / anime girl background. :(
     },
 })
 
@@ -155,6 +155,7 @@ hl.bind(main_mod .. " + SHIFT + L", hl.dsp.exec_cmd("[fullscreen] kitty -o backg
 -- Screeenshot
 hl.bind("PRINT", hl.dsp.exec_cmd("~/bin/screenshot"), { description = "Take screenshot" })
 hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("~/bin/screenshot selection"), { description = "Take selection screenshot" })
+hl.bind(main_mod .. " + PRINT", hl.dsp.exec_cmd("~/bin/obs-toggle"), { description = "Toggle OBS recording" })
 hl.bind("ALT + PRINT", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | tesseract stdin stdout | wl-copy"), { description = "Screen selection to copy text" })
 
 if layout_type == "scrolling" then
@@ -249,7 +250,7 @@ hl.window_rule({
 
 hl.window_rule({
     name = "semi-transparent",
-    match = { class = ".*(kitty|chrome|thunar).*", },
+    match = { class = ".*(kitty|chrome).*", },
     opacity = "0.8 override 0.5 override 0.8 override"
 })
 
