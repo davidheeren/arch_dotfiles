@@ -1,0 +1,9 @@
+#!/bin/bash
+
+path=$(cat "$HOME/.config/gtk-3.0/bookmarks" | "$HOME/bin/process-toggle" wofi -S dmenu -p 'wofi bookmark')
+
+if [[ -z "$path" ]]; then
+    exit
+fi
+
+thunar "$path"
