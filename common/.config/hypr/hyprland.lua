@@ -75,7 +75,8 @@ hl.config({
         fullscreen_on_one_column = true,
         follow_focus = true,
         follow_min_visible = 1,
-        explicit_column_widths = ".333, 0.5, 0.667, 1.0"
+        -- explicit_column_widths = ".333, 0.5, 0.667, 1.0"
+        explicit_column_widths = "0.5, 1.0"
     },
 })
 
