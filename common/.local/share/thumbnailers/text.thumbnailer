@@ -3,5 +3,5 @@ Version=1.0
 Encoding=UTF-8
 Type=X-Thumbnailer
 Name=Text Thumbnailer
-MimeType=text/plain;text/html;text/css;text/markdown
+MimeType=text/plain;text/markdown;text/html;text/css;text/x-python;text/x-csharp;text/javascript;application/typescript;text/rust;text/x-go;application/x-php;text/x-lua;application/x-perl;text/x-shellscript;application/json;application/toml;application/xml;text/x-patch;text/x-dockerfile;text/x-cmake;text/x-makefile;text/csv
 Exec=sh -c '~/bin/textthumb "$@"' _ %s %i %o
