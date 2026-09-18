@@ -4,3 +4,5 @@ thunar-archive-plugin
 file-roller
 tumbler
 gvfs-smb
+ffmpegthumbnailer
+silicon

@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# source: https://docs.xfce.org/xfce/tumbler/available_plugins#customized_thumbnailer_for_text-based_documents
+
+iFile="$2"
+oFile="$3"
+
+extension="${iFile##*.}"
+
+rm -f "$oFile"
+
+head -50 "$iFile" | silicon \
+  --no-window-controls \
+  --font "JetBrainsMono Nerd Font=12" \
+  --pad-horiz 0 --pad-vert 0 \
+  --language "$extension" \
+  --output "$oFile" 2>/dev/null
+
+if [[ ! -s "$oFile" ]]; then
+    tempFile=$(mktemp)
+    head -50 "$iFile" > "$tempFile"
+    magick -size 210x290 -background '#1e1e2e' -fill white -pointsize 12 \
+        -bordercolor '#1e1e2e' caption:@"$tempFile" -border 30x30 "$oFile"
+    rm "$tempFile"
+else
+    # mogrify -gravity NorthWest -crop 210x290+0+0 -extent 210x290 -background '#aaaaff' "$oFile"
+    mogrify -gravity NorthWest -crop 420x580+0+0 -resize 210x290 -extent 210x290 -background '#aaaaff' "$oFile"
+fi
+

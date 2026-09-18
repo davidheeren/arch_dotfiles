@@ -88,7 +88,8 @@ hl.config({
         fullscreen_on_one_column = true,
         follow_focus = true,
         follow_min_visible = 1,
-        explicit_column_widths = ".333, 0.5, 0.667, 1.0"
+        -- explicit_column_widths = ".333, 0.5, 0.667, 1.0"
+        explicit_column_widths = "0.5, 1.0"
     },
 })
 
@@ -139,11 +140,12 @@ hl.bind(main_mod .. " + Q", hl.dsp.window.close(), { description = "Close window
 hl.bind(main_mod .. " + F", hl.dsp.window.fullscreen(), { description = "Toggle fullscreeen window" })
 hl.bind(main_mod .. " + BACKSPACE", hl.dsp.exec_cmd("~/bin/quick-menu"), { description = "Open quick menu" })
 hl.bind(main_mod .. " + B", hl.dsp.exec_cmd("zen-browser"), { description = "Open browser" })
-hl.bind(main_mod .. " + Z", hl.dsp.exec_cmd("zeditor"), { description = "Open gui code editor" })
+hl.bind(main_mod .. " + C", hl.dsp.exec_cmd("zeditor"), { description = "Open gui code editor" })
 hl.bind(main_mod .. " + M", hl.dsp.exec_cmd("thunderbird"), { description = "Open email" })
 hl.bind(main_mod .. " + S", hl.dsp.exec_cmd("spotify-launcher"), { description = "Open spotify" })
 hl.bind(main_mod .. " + O", hl.dsp.exec_cmd("onlyoffice-desktopeditors"), { description = "Open onlyoffice" })
-hl.bind(main_mod .. " + E", hl.dsp.exec_cmd("thunar"), { description = "Open file manager" })
+hl.bind(main_mod .. " + E", hl.dsp.exec_cmd("thunar"), { description = "Open thunar file manager" })
+hl.bind(main_mod .. " + SHIFT + E", hl.dsp.exec_cmd("~/bin/thunar-bookmarks-open"), { description = "Open a bookmark path in thunar" })
 hl.bind(main_mod .. " + SHIFT + N", hl.dsp.exec_cmd("dunstctl close-all"), { description = "Close all notifications" })
 hl.bind(main_mod .. " + N", hl.dsp.exec_cmd("dunstctl history-pop"), { description = "Show notification history" })
 hl.bind(main_mod .. " + G", hl.dsp.exec_cmd("gtk-launch chatgpt"), { description = "Open chatgpt" })
