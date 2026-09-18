@@ -19,7 +19,7 @@ head -50 "$iFile" | silicon \
 if [[ ! -s "$oFile" ]]; then
     tempFile=$(mktemp)
     head -50 "$iFile" > "$tempFile"
-    magick -size 210x290 -background '#1e1e2e' -fill white -pointsize 12 \
+    magick -size 210x290 -background '#1e1e2e' -fill white -font JetBrainsMono-NF-Regular -pointsize 12 \
         -bordercolor '#1e1e2e' caption:@"$tempFile" -border 30x30 "$oFile"
     rm "$tempFile"
 else
