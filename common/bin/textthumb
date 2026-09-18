@@ -5,15 +5,12 @@
 iFile="$2"
 oFile="$3"
 
-extension="${iFile##*.}"
-
 rm -f "$oFile"
 
 head -50 "$iFile" | silicon \
   --no-window-controls \
   --font "JetBrainsMono Nerd Font=12" \
   --pad-horiz 0 --pad-vert 0 \
-  --language "$extension" \
   --output "$oFile" 2>/dev/null
 
 if [[ ! -s "$oFile" ]]; then
