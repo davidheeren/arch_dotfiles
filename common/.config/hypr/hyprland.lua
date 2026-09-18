@@ -38,6 +38,19 @@ hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 
+
+-- Start session
+-- https://wiki.hypr.land/Useful-Utilities/Systemd-start
+hl.on("hyprland.start", function()
+    hl.exec_cmd("systemctl --user start hyprland-session.target")
+end)
+hl.on("hyprland.shutdown", function()
+    os.execute("systemctl --user stop hyprland-session.target && sleep 0.1")
+    -- uses a blocking exec function and sleeps a bit to give things time to close
+    -- you might also want to kill troublesome/crashing non-systemd background services here:
+    -- os.execute("pkill wallpaperthing; systemctl --user stop hyprland-session.target && sleep 0.1")
+end)
+
 hl.config({
     xwayland = {
         force_zero_scaling = true
