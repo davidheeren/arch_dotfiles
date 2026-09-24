@@ -1,12 +1,12 @@
 #!/bin/bash
 
-start=$(cliphist -preview-width 80 list | "$HOME/bin/process-toggle" wofi -S dmenu -p lower_entry -k /dev/null)
+start=$(cliphist -preview-width 75 list | "$HOME/bin/process-toggle" wofi -S dmenu -p lower_entry -k /dev/null)
 if [[ -z "$start" ]]; then exit; fi
 
-end=$(cliphist -preview-width 80 list | "$HOME/bin/process-toggle" wofi -S dmenu -p higher_entry -k /dev/null)
+end=$(cliphist -preview-width 75 list | "$HOME/bin/process-toggle" wofi -S dmenu -p higher_entry -k /dev/null)
 if [[ -z "$end" ]]; then exit; fi
 
-del=$("$HOME/bin/process-toggle" wofi -S dmenu -p delimiter)
+del=$("$HOME/bin/process-toggle" wofi -e -S dmenu -p delimiter)
 if [[ -z "$del" ]]; then exit; fi
 
 start_idx=$(echo "$start" | cut -f 1)
