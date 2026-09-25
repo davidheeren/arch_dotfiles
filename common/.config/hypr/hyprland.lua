@@ -153,6 +153,7 @@ hl.bind(main_mod .. " + G", hl.dsp.exec_cmd("gtk-launch chatgpt"), { description
 hl.bind(main_mod .. " + A", hl.dsp.exec_cmd("gtk-launch amplenote"), { description = "Open amplenote" })
 hl.bind(main_mod .. " + T", hl.dsp.exec_cmd("~/bin/bookmark-open"), { description = "Open bookmark url" })
 hl.bind(main_mod .. " + W", hl.dsp.exec_cmd("~/bin/process-toggle waybar"), { description = "Toggle waybar" })
+hl.bind(main_mod .. " + P", hl.dsp.exec_cmd("~/bin/process-toggle wpets -w"), { description = "Toggle bongocat" })
 hl.bind(main_mod .. " + V", hl.dsp.exec_cmd("~/bin/clip-menu"), { description = "Open clipboard history" })
 hl.bind(main_mod .. " + SHIFT + V", hl.dsp.exec_cmd("~/bin/clip-concat"), { description = "Concat clipboard history" })
 hl.bind(main_mod .. " + SHIFT + W", hl.dsp.exec_cmd("~/bin/wallpaper-set"), { description = "Choose wallpaper" })
