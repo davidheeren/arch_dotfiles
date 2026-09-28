@@ -152,6 +152,7 @@ hl.bind(main_mod .. " + N", hl.dsp.exec_cmd("dunstctl history-pop"), { descripti
 hl.bind(main_mod .. " + G", hl.dsp.exec_cmd("gtk-launch chatgpt"), { description = "Open chatgpt" })
 hl.bind(main_mod .. " + A", hl.dsp.exec_cmd("gtk-launch amplenote"), { description = "Open amplenote" })
 hl.bind(main_mod .. " + T", hl.dsp.exec_cmd("~/bin/bookmark-open"), { description = "Open bookmark url" })
+hl.bind(main_mod .. " + R", hl.dsp.exec_cmd("~/bin/repo-open"), { description = "Open github repo url" })
 hl.bind(main_mod .. " + W", hl.dsp.exec_cmd("~/bin/process-toggle waybar"), { description = "Toggle waybar" })
 hl.bind(main_mod .. " + P", hl.dsp.exec_cmd("~/bin/process-toggle wpets -w"), { description = "Toggle bongocat" })
 hl.bind(main_mod .. " + V", hl.dsp.exec_cmd("~/bin/clip-menu"), { description = "Open clipboard history" })

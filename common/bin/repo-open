@@ -1,0 +1,34 @@
+#!/bin/bash
+
+cache="$HOME/.cache/repo_links.txt"
+owners=(davidheeren AetherIsles)
+
+# get links from cache, update cache in the backgound
+# if no cache force refresh first
+
+refresh() {
+    tmp=$(mktemp)
+    local owner
+    for owner in "${owners[@]}"; do
+        gh repo list "$owner" --limit 1000 --json url -q '.[].url' >> "$tmp"
+    done
+    if [[ -n $(cat "$tmp") ]]; then
+        mv "$tmp" "$cache"
+    fi
+
+}
+
+if [[ -f "$cache" ]]; then
+    urls=$(cat "$cache")
+    refresh &
+else
+    refresh
+    urls=$(cat "$cache")
+fi
+
+url=$(echo "$urls" | "$HOME/bin/process-toggle" wofi -S dmenu -p repo)
+if [[ -n "$url" ]]; then
+    zen-browser "$url"
+fi
+
+wait
