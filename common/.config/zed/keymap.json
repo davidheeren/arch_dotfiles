@@ -1,0 +1,20 @@
+[
+    {
+        "context": "Editor && vim_mode == normal && !menu",
+        "bindings": {
+            "space y": [
+                "workspace::SendKeystrokes",
+                "\" + y"
+            ]
+        }
+    },
+    {
+        "context": "Editor && vim_mode == visual && !menu",
+        "bindings": {
+            "space y": [
+                "workspace::SendKeystrokes",
+                "\" + y"
+            ]
+        }
+    }
+]
