@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 pkg=$(paru -Slq | fzf --preview 'paru -Si {}') 
 

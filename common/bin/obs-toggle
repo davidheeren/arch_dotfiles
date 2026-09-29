@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Exit if OBS is not running
 if ! pgrep -x "obs" > /dev/null

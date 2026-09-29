@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #TODO fix alternate screen stuff
 
 # source: https://github.com/basecamp/omarchy/blob/master/bin/omarchy-cmd-screensaver

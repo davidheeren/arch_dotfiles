@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # wofi entries eat into the right border. not sure why theres this much padding
 

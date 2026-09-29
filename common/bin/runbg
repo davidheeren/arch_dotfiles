@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # setsid "$@" >> ~/runbg.log 2>&1 &
 # systemd-run --user "$@"

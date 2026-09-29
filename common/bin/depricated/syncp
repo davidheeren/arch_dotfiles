@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 remote_config="onedrive-personal:arch_sync_config/config.py"
 remote_config_dir="onedrive-personal:arch_sync_config/"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 path=$(cat "$HOME/.config/gtk-3.0/bookmarks" | awk '{print $1}' | "$HOME/bin/process-toggle" wofi -S dmenu -p 'wofi bookmark')
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # run ntfy sub links ~/bin/ntfy-recieve-links
 # add default-host: "" to .config/ntfy/client.yml

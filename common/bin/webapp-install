@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # help: https://medium.com/medialesson/use-a-hidden-google-api-to-load-favicons-fa945d0ba442
 

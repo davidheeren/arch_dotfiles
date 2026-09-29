@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # file_name="shot_$(date +'%Y_%m_%d_%H_%M_%S')"
 file_name="shot_$(date +'%Y-%b-%d_%H-%M-%S')"

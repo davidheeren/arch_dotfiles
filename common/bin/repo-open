@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cache="$HOME/.cache/repo_links.txt"
 owners=(davidheeren AetherIsles)

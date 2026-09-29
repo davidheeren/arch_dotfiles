@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [[ -z "$1" ]]; then
     echo "Empty path"
@@ -7,6 +7,6 @@ fi
 
 path="$1"
 
-echo "#!/bin/bash" > "$path"
+echo "#!/usr/bin/env bash" > "$path"
 chmod +x "$path"
 nvim "$path"
