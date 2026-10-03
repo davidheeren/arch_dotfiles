@@ -175,6 +175,7 @@ hl.bind("PRINT", hl.dsp.exec_cmd("~/bin/screenshot"), { description = "Take scre
 hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("~/bin/screenshot selection"), { description = "Take selection screenshot" })
 hl.bind(main_mod .. " + PRINT", hl.dsp.exec_cmd("~/bin/obs-toggle"), { description = "Toggle OBS recording" })
 hl.bind("ALT + PRINT", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | tesseract stdin stdout | wl-copy"), { description = "Screen selection to copy text" })
+hl.bind("CONTROL + PRINT", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | zbarimg --raw - | wl-copy"), { description = "Screen selection to copy QR code" })
 
 if layout_type == "scrolling" then
     -- Scrolling binds
