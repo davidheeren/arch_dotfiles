@@ -15,6 +15,7 @@ return {
         vim.keymap.set("n", "<leader>se", builtin.diagnostics)
         vim.keymap.set("n", "<leader>sk", builtin.keymaps)
         vim.keymap.set('n', '<leader>sb', builtin.buffers)
+        vim.keymap.set('n', '<leader>sr', builtin.lsp_references)
         vim.keymap.set("n", "<leader>/", function()
             builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
                 winblend = 10,
