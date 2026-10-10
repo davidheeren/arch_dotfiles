@@ -81,8 +81,8 @@
     },
     "network": {
         // "format-wifi": " {bandwidthDownBits}",
-        "format-wifi": "  {bandwidthDownBytes}",
-        "format-ethernet": "󰈀  {bandwidthDownBytes}",
+        "format-wifi": "  {bandwidthDownBits}",
+        "format-ethernet": "󰈀  {bandwidthDownBits}",
         "format-disconnected": "󰖪  no network",
         "tooltip-format": "str: {signalStrength}%, freq: {frequency}GHz",
         "interval": 2,
