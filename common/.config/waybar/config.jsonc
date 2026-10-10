@@ -81,12 +81,13 @@
     },
     "network": {
         // "format-wifi": " {bandwidthDownBits}",
-        "format-wifi": "  {bandwidthTotalBytes}",
-        "format-ethernet": "󰈀  {bandwidthTotalBytes}",
+        "format-wifi": "  {bandwidthDownBytes}",
+        "format-ethernet": "󰈀  {bandwidthDownBytes}",
         "format-disconnected": "󰖪  no network",
-        "interval": 5,
+        "tooltip-format": "str: {signalStrength}%, freq: {frequency}GHz",
+        "interval": 2,
         // "max-length": 50,
-        "tooltip": false,
+        // "tooltip": false,
         "on-click": "kitty nmtui"
     },
     "pulseaudio": {
