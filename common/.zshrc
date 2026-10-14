@@ -104,7 +104,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git zsh-syntax-highlighting fzf-tab vi-mode fzf colored-man-pages golang)
+# https://github.com/jeffreytse/zsh-vi-mode
+# https://github.com/Aloxaf/fzf-tab
+# https://github.com/zsh-users/zsh-syntax-highlighting
+plugins=(git zsh-syntax-highlighting fzf-tab zsh-vi-mode fzf colored-man-pages golang)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -112,7 +115,7 @@ source $ZSH/oh-my-zsh.sh
 zstyle ':completion:*' insert-tab false
 
 # VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
-VI_MODE_SET_CURSOR=true
+# VI_MODE_SET_CURSOR=true
 
 # Path completion shows dot files
 # _comp_options+=(globdots)
@@ -154,3 +157,9 @@ setopt append_history inc_append_history share_history # better history
 # on exit, history appends rather than overwrites; history is appended as soon as cmds executed; history shared across sessions
 setopt dot_glob # include dotfiles
 setopt extended_glob # match - # ^
+
+# don't move through history with j k
+function zvm_after_lazy_keybindings() {
+    zvm_bindkey vicmd 'j' down-line
+    zvm_bindkey vicmd 'k' up-line
+}
