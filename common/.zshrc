@@ -16,6 +16,9 @@ export EDITOR=/bin/nvim
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/go/bin
 
+# fix some weird prompts when going in to normal vi mode in multiline commands
+PS2='> '
+
 # alias: " only run subshell once on definition but ' run every time
 alias nvimr="nvim -RM"
 alias o="xdg-open"
@@ -108,6 +111,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # https://github.com/Aloxaf/fzf-tab
 # https://github.com/zsh-users/zsh-syntax-highlighting
 plugins=(git zsh-syntax-highlighting fzf-tab zsh-vi-mode fzf colored-man-pages golang)
+
+# so that zsh-vi-mode doesn't lazy load and override other fzf-tab keybinds
+ZVM_INIT_MODE=sourcing
 
 source $ZSH/oh-my-zsh.sh
 
