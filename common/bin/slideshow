@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if [[ -z "$1" ]]; then
+    echo "please provide a directory"
+    exit
+fi
+
+pqiv -slFfti --slideshow-interval=8 --fade-duration=1 --end-of-files-action=wrap "$1"
