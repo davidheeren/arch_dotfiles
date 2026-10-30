@@ -3,6 +3,7 @@
 # plugins in .oh-my-zsh/cusom/plugins: fzf-tab
 
 eval "$(zoxide init zsh)"
+eval "$(mise activate zsh)"
 
 # Start ssh or connect: https://wiki.archlinux.org/title/SSH_keys
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
