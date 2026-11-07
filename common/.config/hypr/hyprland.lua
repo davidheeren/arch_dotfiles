@@ -31,6 +31,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("ntfy sub links ~/bin/ntfy-recieve-links")
     -- https://wiki.hypr.land/Hypr-Ecosystem/hyprpolkitagent
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
+    hl.exec_cmd("hyprpm reload")
 end)
 
 -- Environment vars
@@ -65,6 +66,7 @@ hl.config({
 
 local colors = require("hyprland.colors")
 require("hyprland.style")(layout_type, colors)
+require("hyprland.plugins")(layout_type, colors)
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 hl.config({
