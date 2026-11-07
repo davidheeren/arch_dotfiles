@@ -5,4 +5,4 @@ if [[ -z "$1" ]]; then
     exit
 fi
 
-pqiv -slFfti --slideshow-interval=8 --fade-duration=1 --end-of-files-action=wrap "$1"
+pqiv -slFfti --shuffle --slideshow-interval=5 --fade-duration=1 --end-of-files-action=wrap "$1"
