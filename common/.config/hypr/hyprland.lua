@@ -32,6 +32,9 @@ hl.on("hyprland.start", function()
     -- https://wiki.hypr.land/Hypr-Ecosystem/hyprpolkitagent
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
     hl.exec_cmd("hyprpm reload")
+    -- Start session
+    -- https://wiki.hypr.land/Useful-Utilities/Systemd-start
+    hl.exec_cmd("systemctl --user start hyprland-session.target")
 end)
 
 -- Environment vars
@@ -40,11 +43,7 @@ hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 
 
--- Start session
--- https://wiki.hypr.land/Useful-Utilities/Systemd-start
-hl.on("hyprland.start", function()
-    hl.exec_cmd("systemctl --user start hyprland-session.target")
-end)
+-- Stop session
 hl.on("hyprland.shutdown", function()
     os.execute("systemctl --user stop hyprland-session.target && sleep 0.1")
     -- uses a blocking exec function and sleeps a bit to give things time to close
@@ -167,10 +166,9 @@ hl.bind(main_mod .. " + SHIFT + P", hl.dsp.window.pin(), { description = "Toggle
 hl.bind(main_mod .. " + SHIFT + T", hl.dsp.window.set_prop({ prop = "opaque", value = "toggle", window = "active" }),
     { description = "Toggle active window transparency" })
 hl.bind(main_mod .. " + SHIFT + K", hl.dsp.exec_cmd("hyprbind -d | ~/bin/process-toggle wofi -S dmenu"), { description = "Show hyprland keybinds" })
-hl.bind(main_mod .. " + SHIFT + W", hl.dsp.exec_cmd("~/bin/wallpaper-update"), { description = "Change wallpaper" })
 
 -- Fun
-hl.bind(main_mod .. " + SHIFT + L", hl.dsp.exec_cmd("[fullscreen] kitty -o background_opacity=0.0 pipes.sh -p 2"), { description = "Fullscreen pipes animation" })
+hl.bind(main_mod .. " + SHIFT + L", hl.dsp.exec_cmd("kitty -o background_opacity=0.0 pipes.sh -p 2", { fullscreen = true }), { description = "Fullscreen pipes animation" })
 
 -- Screeenshot
 hl.bind("PRINT", hl.dsp.exec_cmd("~/bin/screenshot"), { description = "Take screenshot" })
@@ -181,12 +179,12 @@ hl.bind("CONTROL + PRINT", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | zbarimg --r
 
 if layout_type == "scrolling" then
     -- Scrolling binds
-    hl.bind(main_mod .. " + K", hl.dsp.layout("colresize +conf"), { description = "Resize window up" })
-    hl.bind(main_mod .. " + J", hl.dsp.layout("colresize -conf"), { description = "Resize window down" })
+    hl.bind(main_mod .. " + K", hl.dsp.layout("colresize +conf"), { description = "Widen column" })
+    hl.bind(main_mod .. " + J", hl.dsp.layout("colresize -conf"), { description = "Narrow column" })
     hl.bind(main_mod .. " + H", hl.dsp.layout("focus l"), { description = "Focus window left" })
     hl.bind(main_mod .. " + L", hl.dsp.layout("focus r"), { description = "Focus window right" })
-    hl.bind(main_mod .. " + mouse_down", hl.dsp.layout("move +col"), { description = "Focus window left" })
-    hl.bind(main_mod .. " + mouse_up", hl.dsp.layout("move -col"), { description = "Focus window right" })
+    hl.bind(main_mod .. " + mouse_down", hl.dsp.layout("move +col"), { description = "Scroll columns forward" })
+    hl.bind(main_mod .. " + mouse_up", hl.dsp.layout("move -col"), { description = "Scroll columns back" })
     -- hl.bind(main_mod .. " + mouse_down", hl.dsp.layout("move +200"))
     -- hl.bind(main_mod .. " + mouse_up", hl.dsp.layout("move -200"))
     hl.bind(main_mod .. " + LEFT", hl.dsp.layout("swapcol l"), { description = "Swap window left" })
@@ -228,7 +226,7 @@ hl.bind(main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true, desc
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("~/bin/volume-set up"), { locked = true, repeating = true, description = "Raise volume" })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("~/bin/volume-set down"), { locked = true, repeating = true, description = "Lower volume" })
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("~/bin/volume-set mute"), { locked = true, description = "Toggle mute audio output" })
-hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), { locked = true, repeating = true, description = "Toggle audio source" })
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), { locked = true, description = "Toggle audio source" })
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("~/bin/brightness-set up"), { locked = true, repeating = true, description = "Raise screen brightness" })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("~/bin/brightness-set down"), { locked = true, repeating = true, description = "Lower screen brightness" })
 hl.bind(main_mod .. " + XF86MonBrightnessUp", hl.dsp.exec_cmd("~/bin/temperature-set warmer"), { locked = true, repeating = true, description = "Raise screen temperature" })

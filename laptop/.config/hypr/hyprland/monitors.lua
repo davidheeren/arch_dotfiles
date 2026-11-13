@@ -20,7 +20,7 @@ local function apply_layout(external_connected)
     else
         -- Main only
         hl.monitor({
-            output   = "eDP-1",
+            output   = INTERNAL,
             mode     = "1920x1080@60",
             position = "auto",
             scale    = 1.25,
@@ -49,7 +49,7 @@ hl.on("monitor.added", function(m)
     end
 end)
 
--- React to added
+-- React to removed
 hl.on("monitor.removed", function(m)
     if m.name == EXTERNAL then
         apply_layout(false)

@@ -9,7 +9,6 @@ return function(layout_type, colors)
             col = {
                 -- active_border = { colors = { "rgba(7aa2f7cc)", "rgba(9ece6acc)" }, angle = 45 },
                 active_border = { colors = { "rgb(" .. colors.top_border .. ")", "rgb(" .. colors.bottom_border .. ")" }, angle = 45 },
-                -- inactive_border = "rgba(595959aa)",
                 inactive_border = "rgba(595959aa)",
             },
 
@@ -57,8 +56,6 @@ return function(layout_type, colors)
     hl.curve("wind", { type = "bezier", points = { { 0.12, 0.92 }, { 0.08, 1.0 } } })
     hl.curve("overshot", { type = "bezier", points = { { 0.18, 0.95 }, { 0.22, 1.03 } } })
     hl.curve("linear", { type = "bezier", points = { { 1, 1 }, { 1, 1 } } })
-    
-    --checkpoint
 
     hl.animation({ leaf = "windows", enabled = true, speed = 4, bezier = "wind", style = "popin 60%" })
     hl.animation({ leaf = "windowsIn", enabled = true, speed = 4, bezier = "overshot", style = "popin 60%" })
