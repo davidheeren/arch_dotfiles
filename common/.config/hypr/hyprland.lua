@@ -273,6 +273,13 @@ hl.window_rule({
     opacity = "0.8 override 0.5 override 0.8 override"
 })
 
+-- Warp cursor to new windows that took focus (refocusing triggers the same warp as focus keybinds)
+hl.on("window.open", function(window)
+    if window.active then
+        hl.dispatch(hl.dsp.focus({ window = "address:" .. window.address }))
+    end
+end)
+
 -- trying to have lonely windows start full width but be able to be dynamically ajusted
 -- hl.window_rule({
 --     name = "full_witdth_start",
